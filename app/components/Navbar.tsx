@@ -5,7 +5,7 @@ import { VscCircleFilled } from 'react-icons/vsc'
 
 const Navbar = () => {
   return (
-    <div className="flex flex-row bg-black h-[100px] items-center px-20 lg:justify-around justify-between">
+    <div className="flex flex-row bg-black h-[90px] items-center px-20 lg:justify-around justify-between">
       <div className="">
         <h1 className="text-white text-2xl">PMFC</h1>
       </div>

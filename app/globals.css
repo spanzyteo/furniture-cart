@@ -2,3 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+.text {
+  font-family: "Dosis", sans-serif;
+  font-weight: 300;
+  letter-spacing: 7px;
+  font-size: 11px;
+}
+
+.text1 {
+ font-family: "Dosis", sans-serif;
+  /* font-optical-sizing: auto; */
+  font-weight: 300;
+  letter-spacing: 11px;
+  line-height: 20px;
+}
+
+.text3 {
+  font-family: "Dosis", sans-serif;
+  font-weight: 800;
+  letter-spacing: 3px;
+  font-size: 11px;
+}

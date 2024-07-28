@@ -4,6 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
 
+body {
+  background-color: rgb(24, 25, 27);
+}
+
 .text {
   font-family: "Dosis", sans-serif;
   font-weight: 300;
@@ -24,4 +28,12 @@
   font-weight: 800;
   letter-spacing: 3px;
   font-size: 11px;
+}
+
+.text4 {
+  font-family: "Dosis", sans-serif;
+  font-weight: 200;
+  letter-spacing: 5px;
+  font-size: 28px;
+  line-height: 33.6px;
 }

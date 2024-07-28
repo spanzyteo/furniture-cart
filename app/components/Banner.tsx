@@ -1,6 +1,6 @@
 'use client'
-import Image from "next/image"
-import { useEffect, useState } from "react"
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import { BsChevronLeft } from 'react-icons/bs'
 import { BsChevronRight } from 'react-icons/bs'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -56,7 +56,7 @@ const Banner: React.FC = () => {
 
   return (
     <>
-      <div className="w-[100%] h-[560px] relative group">
+      <div className="w-[100%] h-[560px] relative lg:group">
         <div className="relative w-full h-full transition-all duration-300 ease">
           <Image
             src={slides[currentIndex].src}
@@ -72,15 +72,15 @@ const Banner: React.FC = () => {
               exit="exit"
               variants={variants}
               transition={{ duration: 0.5 }}
-              className="absolute top-1/3 left-24 flex flex-col mt-[-2rem] gap-10"
+              className="absolute top-1/3 lg:left-24 left-5 flex flex-col mt-[-2rem] lg:gap-10 gap-1"
             >
-              <div className="text-white text uppercase mt-8 ml-[-2.4rem] sm:ml-0 lg:ml-0">
+              <div className="text-white text uppercase mt-5 sm:ml-0 lg:ml-0 text-[8px]">
                 {slides[currentIndex].text}
               </div>
-              <div className="text-white text1 uppercase lg:text-[54px] sm:text-[36px] text-[24px] ml-[-2.4rem] sm:ml-0 lg:ml-0 mt-10">
+              <div className="text-white text1 uppercase lg:text-[54px] sm:text-[36px] text-[20px] sm:ml-0 lg:ml-0 mt-5 text-nowrap">
                 {slides[currentIndex].text1}
               </div>
-              <button className="left-24 text-white border border-white uppercase w-[200px] h-[35px] flex items-center justify-center mt-[2rem] text3">
+              <button className="left-24 text-white border border-white uppercase w-[200px] h-[35px] flex items-center justify-center mt-[1rem] text3">
                 {slides[currentIndex].text2}
                 <RiArrowRightSLine className="h-[20px] w-[20px] mt-[-0.1rem] text-[#fab702]" />
               </button>

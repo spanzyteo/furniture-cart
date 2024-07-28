@@ -1,4 +1,5 @@
 import Banner from "./components/Banner"
+import FirstBody from "./components/FirstBody"
 import Navbar from "./components/Navbar"
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Navbar />
       <Banner />
+      <FirstBody />
       <div>Hello world</div>
     </>
   )

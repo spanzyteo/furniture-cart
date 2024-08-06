@@ -3,10 +3,15 @@ import React, { useState } from 'react'
 import { imageData } from '../data/imageData'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ImageDataStructure } from '../data/imageData'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-const ProjectSection: React.FC = () => {
-  const [currentSet, setCurrentSet] = useState(imageData)
+interface ProjectSectionProps {
+  currentSet: ImageDataStructure[]
+}
+
+const ProjectSection: React.FC<ProjectSectionProps> = ({ currentSet }) => {
+  // const [currentSet, setCurrentSet] = useState(imageData)
   const [activeSection, setActiveSection] = useState<string>('all')
 
 

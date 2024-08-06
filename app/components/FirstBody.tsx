@@ -75,7 +75,7 @@ const FirstBody: React.FC = () => {
             </div>
           </div>
           <div className="w-[300px] lg:w-[1050px] sm:w-[600px] border-b-[rgb(248, 249, 250)] border-b mt-28 sm:mt-24 lg:mt-28"></div>
-          <div className="w-[300px] lg:w-[1050px] sm:w-[600px] mt-10 text-[13px] lg:text-[13px] sm:text-[14px] font-thin">
+          <div className="w-[300px] lg:w-[1050px] sm:w-[600px] mt-10 text-[13px] lg:text-[13px] sm:text-[14ypx] font-thin">
             <h1 className="text-white ">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa

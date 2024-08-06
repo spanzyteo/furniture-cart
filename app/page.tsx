@@ -4,6 +4,7 @@ import FirstBody from "./components/FirstBody"
 import Navbar from "./components/Navbar"
 import ProjectControlSection from "./components/ProjectControlSection"
 import ProjectSection from "./components/ProjectSection"
+import SecondaryFooter from "./components/SecondaryFooter"
 import ViewProjects from "./components/ViewProjects"
 
 export default function Home() {
@@ -13,9 +14,9 @@ export default function Home() {
       <Banner />
       <FirstBody />
       <ProjectControlSection />
-      <ProjectSection />
       <ViewProjects />
       <CustomerReviews />
+      <SecondaryFooter />
       <div>Hello world</div>
     </>
   )

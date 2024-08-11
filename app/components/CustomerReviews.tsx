@@ -24,23 +24,20 @@ const CustomerReviews: React.FC = () => {
   }, [])
 
   const nextReview = () => {
-    if (isLargeScreen) {
-      setCurrentIndex((currentIndex + 2) % reviewData.length)
-    } else {
-      setCurrentIndex((currentIndex + 1) % reviewData.length)
-    }
+    setCurrentIndex(
+      (currentIndex + (isLargeScreen ? 2 : 1)) % reviewData.length
+    )
   }
 
   const prevReview = () => {
-    if (isLargeScreen) {
-      setCurrentIndex(
-        (currentIndex - 2 + reviewData.length) % reviewData.length
-      )
-    } else {
-      setCurrentIndex(
-        (currentIndex - 1 + reviewData.length) % reviewData.length
-      )
-    }
+    setCurrentIndex(
+      (currentIndex - (isLargeScreen ? 2 : 1) + reviewData.length) %
+        reviewData.length
+    )
+  }
+
+  const showReviewAt = (index: number) => {
+    setCurrentIndex(index)
   }
 
   return (
@@ -62,28 +59,63 @@ const CustomerReviews: React.FC = () => {
             <div className="w-[150px] sm:w-[200px] md:w-[300px] border-b-[rgb(248, 249, 250)] border-b"></div>
           </div>
         </div>
-        <div className="mt-20 mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            {reviewData
-              .slice(currentIndex, currentIndex + (isLargeScreen ? 2 : 1))
-              .map((review: DataReview) => (
-                <div
-                  key={review.id}
-                  className="h-[386px] md:h-[242px] lg:h-[271px] w-[70%] lg:w-[542px] bg-black mx-auto opacity-75"
-                >
-                  <div className="w-[70px] h-[60px] bg-[#fab702] align-top text-left z-10 flex items-center justify-center">
-                    <RiDoubleQuotesL className="text-black h-[40px] w-[40px]" />
-                  </div>
-                  <div className="w-[80%] mx-auto">
-                    <p className="text-white w-full ml-8">{review.review}</p>
-                    <p className="text-[#fab702] ml-8 mt-8 text-[12px]">{review.name}</p>
-                  </div>
-                  {/* <div className="mt-10">
-                    <p className="text-[#fab702]">{review.name}</p>
-                  </div> */}
+        <div className="mt-20 mx-auto overflow-hidden relative w-[85%] lg:w-[1100px] lg:gap-10">
+          <div
+            className="flex justify-between transition-transform duration-500 ease-in-out lg:gap-16"
+            style={{
+              transform: `translateX(-${
+                currentIndex * (isLargeScreen ? 50 : 100)
+              }%)`,
+            }}
+          >
+            {reviewData.map((review: DataReview) => (
+              <div
+                key={review.id}
+                className="h-[386px] md:h-[242px] lg:h-[271px] w-[100%] lg:w-[45%] bg-black opacity-75 flex-shrink-0"
+              >
+                <div className="w-[70px] h-[60px] bg-[#fab702] align-top text-left z-10 flex items-center justify-center">
+                  <RiDoubleQuotesL className="text-black h-[40px] w-[40px]" />
                 </div>
-              ))}
+                <div className="w-[80%] mx-auto">
+                  <p className="text-white w-full ml-8">{review.review}</p>
+                  <p className="text-[#fab702] ml-8 mt-8 text-[12px]">
+                    {review.name}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
+        <div className="flex items-center mt-8 mx-auto">
+          {isLargeScreen ? (
+            <div className="flex items-center gap-2 mx-auto">
+              {Array.from({ length: Math.ceil(reviewData.length / 2) }).map(
+                (_, index) => (
+                  <div
+                    key={index}
+                    onClick={() => showReviewAt(index * 2)}
+                    className={`h-[5px] w-[5px] rounded-full cursor-pointer ${
+                      Math.floor(currentIndex / 2) === index
+                        ? 'bg-[#fab702]'
+                        : 'bg-white'
+                    }`}
+                  ></div>
+                )
+              )}
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 mx-auto">
+              {reviewData.map((_, index) => (
+                <div
+                  key={index}
+                  onClick={() => showReviewAt(index)}
+                  className={`h-[5px] w-[5px] rounded-full  cursor-pointer ${
+                    currentIndex === index ? 'bg-[#fab702]' : 'bg-white'
+                  }`}
+                ></div>
+              ))}
+            </div>
+          )}
         </div>
       </Parallax>
     </>

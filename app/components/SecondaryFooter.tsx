@@ -51,7 +51,7 @@ const SecondaryFooter = () => {
           </div>
           <div className="text-white border-b border-b-gray-600 transition-all duration-300 ease pb-2 mt-2 flex items-center gap-2">
             <p className="text-[#fab702] font-semibold">Email:</p>
-            <p>princemfurnishingconcept@gmail.com</p>
+            <p className='text-[12px]'>princemfurnishingconcept@gmail.com</p>
           </div>
         </div>
       </div>

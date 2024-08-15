@@ -11,7 +11,7 @@ import ViewProjects from "./components/ViewProjects"
 export default function Home() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Banner />
       <FirstBody />
       <ProjectControlSection />

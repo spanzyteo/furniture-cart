@@ -8,21 +8,25 @@ body {
   background-color: rgb(24, 25, 27);
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .text {
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
   font-weight: 300;
   letter-spacing: 7px;
   font-size: 11px;
 }
 
 .text2 {
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
   line-height: 33px;
   letter-spacing: 5px;
 }
 
 .text1 {
- font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
   /* font-optical-sizing: auto; */
   font-weight: 300;
   letter-spacing: 11px;
@@ -30,14 +34,14 @@ body {
 }
 
 .text3 {
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
   font-weight: 800;
   letter-spacing: 3px;
   font-size: 11px;
 }
 
 .text4 {
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
   font-weight: 200;
   letter-spacing: 5px;
   font-size: 28px;
@@ -49,4 +53,8 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+}
+
+.shadow-custom {
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.8), 0px 15px 25px rgba(0, 0, 0, 0.6);
 }

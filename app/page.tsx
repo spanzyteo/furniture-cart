@@ -18,7 +18,6 @@ export default function Home() {
       <ViewProjects />
       <CustomerReviews />
       <SecondaryFooter />
-      <Footer />
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { IoMenuSharp } from 'react-icons/io5'
 import { VscCircleFilled } from 'react-icons/vsc'
+import Link from 'next/link'
 
 
 const Navbar = () => {
@@ -27,12 +28,14 @@ const Navbar = () => {
         </h1>
         <VscCircleFilled className="text-[#fab702]" />
         <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-          Blog
+          Training
         </h1>
         <VscCircleFilled className="text-[#fab702]" />
-        <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-          Shop
-        </h1>
+        <Link href={'/shop'}>
+          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+            Shop
+          </h1>
+        </Link>
         <VscCircleFilled className="text-[#fab702]" />
         <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
           Contact

@@ -27,9 +27,11 @@ const Navbar = () => {
           Services
         </h1>
         <VscCircleFilled className="text-[#fab702]" />
-        <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-          Training
-        </h1>
+        <Link href={'/training'}>
+          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+            Training
+          </h1>
+        </Link>
         <VscCircleFilled className="text-[#fab702]" />
         <Link href={'/shop'}>
           <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">

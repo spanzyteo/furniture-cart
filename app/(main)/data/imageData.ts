@@ -1,17 +1,17 @@
-import commPic from '../../public/comm-pic.jpg'
-import hosPic from '../../public/hos-pic.jpg'
-import hosPic1 from '../../public/hos-pic1.jpg'
-import officePic from '../../public/office-pic.jpg'
-import officePic1 from '../../public/office-pic1.jpg'
-import resPic from '../../public/res-pic.jpg'
-import resPic1 from '../../public/res-pic2.jpg'
-import resPic2 from '../../public/res-pic3.jpg'
-import { StaticImageData } from 'next/image'
+const  commPic = '/comm-pic.jpg'
+const hosPic =  '/hos-pic.jpg'
+const hosPic1 = '/hos-pic1.jpg'
+const officePic = '/office-pic.jpg'
+const officePic1 = '/office-pic1.jpg'
+const resPic = '/res-pic.jpg'
+const resPic1 =  '/res-pic2.jpg'
+const resPic2 = '/res-pic3.jpg'
+
 
 export interface ImageDataStructure {
   id: number;
   section: string;
-  image: StaticImageData;
+  image:  string;
   title: string;
 }
 

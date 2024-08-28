@@ -46,7 +46,7 @@ const Banner: React.FC = () => {
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [slides.length])
 
   const variants = {
     enter: { opacity: 0, y: -20 },

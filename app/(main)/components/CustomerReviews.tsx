@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { Parallax } from 'react-parallax'
 import Image from 'next/image'
-import wide from '../../public/wide1.jpg'
-import { DataReview, reviewData } from '../data/reviews'
+import { DataReview, reviewData } from "../data/reviews"
 import { RiDoubleQuotesL } from 'react-icons/ri'
 
 const CustomerReviews: React.FC = () => {
@@ -45,7 +44,7 @@ const CustomerReviews: React.FC = () => {
       <Parallax
         strength={300}
         className="lg:h-[613px] md:h-[635px] sm:h-[692px] h-[750px] w-full relative"
-        bgImage={wide.src}
+        bgImage={"/wide1.jpg"}
       >
         <div className="flex flex-col items-center">
           <div className="mt-20">

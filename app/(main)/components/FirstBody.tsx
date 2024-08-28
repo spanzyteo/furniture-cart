@@ -1,9 +1,8 @@
 'use client'
-import { GetStaticProps } from 'next'
-import { data, DataItem } from '../data/data'
+import { data, } from '../data/data'
 import Image from 'next/image'
 import { Parallax } from 'react-parallax'
-import bg from '../../public/bg-2.jpg'
+
 
 const FirstBody: React.FC = () => {
   return (
@@ -29,7 +28,7 @@ const FirstBody: React.FC = () => {
                   {item.content}
                 </div>
                 <div className="w-[340px] md:w-[240px] lg:w-[380px] lg:h-[171px] md:h-[103px] h-[169px]">
-                  <Image src={item.image} alt="item-image" objectFit="cover" />
+                  <Image src={item.image} className="object-cover" layout="fill" alt="item-image" objectFit="cover" />
                 </div>
               </div>
             ))}
@@ -39,7 +38,7 @@ const FirstBody: React.FC = () => {
       <Parallax
         strength={300}
         className="h-[1633px] lg:h-[700px] sm:h-[1445px] mt-20 bg2"
-        bgImage={bg.src}
+        bgImage={"/bg-2.jpg"}
       >
         <div className="flex flex-col items-center">
           <div className="mt-20">

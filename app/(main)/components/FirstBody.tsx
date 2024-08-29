@@ -24,11 +24,11 @@ const FirstBody: React.FC = () => {
                   <h1 className="text-[#fab702]">{item.title1}</h1>
                   <h1>{item.title2}</h1>
                 </div>
-                <div className="text-sm font-thin lg:w-[380px] md:w-[240px] w-[340px] text-[#BBBBBB]">
+                <div className="text-sm font-thin xl:w-[380px] md:w-[240px] w-[340px] text-[#BBBBBB]">
                   {item.content}
                 </div>
-                <div className="w-[340px] md:w-[240px] lg:w-[380px] lg:h-[171px] md:h-[103px] h-[169px]">
-                  <Image src={item.image} className="object-cover" layout="fill" alt="item-image" objectFit="cover" />
+                <div className="w-[340px] md:w-[240px] xl:w-[380px] xl:h-[171px] md:h-[103px] h-[169px]">
+                  <Image src={item.image} className="object-cover h-full w-full" alt="item-image" width={380} height={171} />
                 </div>
               </div>
             ))}

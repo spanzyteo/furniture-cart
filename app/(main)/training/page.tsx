@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Parallax } from 'react-parallax'
-import trainingImg from '../../public/training-img.jpg'
+import trainingImg from '../../../public/training-img.jpg'
 import { MdVerified } from 'react-icons/md'
 
 const page: React.FC = () => {

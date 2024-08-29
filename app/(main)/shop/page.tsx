@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Parallax } from 'react-parallax'
 import { Product } from '../data/product'
 import { RiArrowRightSLine } from 'react-icons/ri'
-import bgProduct from '../../public/bg-product.jpg'
+import bgProduct from '../../../public/bg-product.jpg'
 import SecondaryFooter from '../components/SecondaryFooter'
 
 const page: React.FC = () => {

@@ -4,7 +4,7 @@ import { Parallax } from 'react-parallax'
 import trainingImg from '../../../public/training-img.jpg'
 import { MdVerified } from 'react-icons/md'
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
     const [file, setFile] = useState<File | null>(null)
     const [resume, setResume] = useState<File | null>(null)
     const [error, setError] = useState<string | null>(null)
@@ -311,4 +311,4 @@ const page: React.FC = () => {
   )
 }
 
-export default page
+export default Page

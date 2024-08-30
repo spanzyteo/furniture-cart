@@ -7,7 +7,7 @@ import { RiArrowRightSLine } from 'react-icons/ri'
 import bgProduct from '../../../public/bg-product.jpg'
 import SecondaryFooter from '../components/SecondaryFooter'
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <>
       <div className="flex flex-col ">
@@ -53,4 +53,4 @@ const page: React.FC = () => {
   )
 }
 
-export default page
+export default Page

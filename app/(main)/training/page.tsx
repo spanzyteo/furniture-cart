@@ -256,7 +256,7 @@ const Page: React.FC = () => {
               </div>
               <div className="flex flex-col gap-2">
                 <h1 className="text-xl text-[#fab702] uppercase">
-                  What You'll Learn
+                  What You&apos;ll Learn
                 </h1>
                 <div className="flex items-center gap-2">
                   <MdVerified className="text-[#fab702]" />

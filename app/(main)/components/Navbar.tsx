@@ -38,9 +38,11 @@ const Navbar = () => {
           <h1 className="text-white text-2xl">PMFC</h1>
         </div>
         <div className="lg:flex hidden text-white text-xs uppercase gap-6 font-semibold items-center">
+          <Link href={'/'}>
           <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
             Home
           </h1>
+          </Link>
           <VscCircleFilled className="text-[#fab702]" />
           <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
             Pages
@@ -66,9 +68,11 @@ const Navbar = () => {
             </h1>
           </Link>
           <VscCircleFilled className="text-[#fab702]" />
+          <Link href={'/contact'}>
           <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
             Contact
           </h1>
+          </Link>
         </div>
         <div className="hidden lg:block hover:bg-[#fab702]">
           <button className="flex items-center justify-center w-[150px] h-[35px] text-white border border-white text-sm gap-1 hover:text-black hover:font-semibold hover:border-black transition-all duration-300 ease group">
@@ -102,9 +106,11 @@ const Navbar = () => {
             : 'max-h-0 opacity-0'
         }`}
       >
-        <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-          Home
-        </h1>
+        <Link href={'/'} onClick={() => closeMenubar()}>
+          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+            Home
+          </h1>
+        </Link>
         <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
         <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
           Pages
@@ -130,9 +136,11 @@ const Navbar = () => {
           </h1>
         </Link>
         <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-        <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-          Contact
-        </h1>
+        <Link href={'/contact'} onClick={() => closeMenubar()}>
+          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+            Contact
+          </h1>
+        </Link>
         <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
       </motion.div>
       {/* )} */}

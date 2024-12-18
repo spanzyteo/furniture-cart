@@ -70,7 +70,7 @@ const Page: React.FC = () => {
                   type="text"
                   title="full-name"
                   placeholder="Full Name"
-                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[90vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
+                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[85vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -79,7 +79,7 @@ const Page: React.FC = () => {
                   type="number"
                   title="age"
                   placeholder="Age"
-                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[90vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
+                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[85vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -124,7 +124,7 @@ const Page: React.FC = () => {
                   type="number"
                   title="contact"
                   placeholder="Contact"
-                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[90vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
+                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[85vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -133,7 +133,7 @@ const Page: React.FC = () => {
                   type="text"
                   title="email"
                   placeholder="Email"
-                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[90vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
+                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[85vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -142,7 +142,7 @@ const Page: React.FC = () => {
                   type="text"
                   title="address"
                   placeholder="Address"
-                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[90vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
+                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[85vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -191,7 +191,7 @@ const Page: React.FC = () => {
                     type="number"
                     title="emergency-Contact"
                     placeholder="Emergency contact"
-                    className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[90vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
+                    className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[85vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none"
                   />
                 </div>
                 <div className="flex flex-col gap-2 mt-4">
@@ -199,7 +199,7 @@ const Page: React.FC = () => {
                   <textarea
                     title="text"
                     placeholder="Previous Experience"
-                    className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[90vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none align-top"
+                    className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[85vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none align-top text-white"
                     rows={3}
                   />
                 </div>
@@ -218,7 +218,7 @@ const Page: React.FC = () => {
               </h1>
               <div className="flex flex-col gap-2">
                 <label>Current Skill Level:</label>
-                <div className="flex items-center gap-4">
+                <div className="flex lg:flex-row flex-col gap-4">
                   <label htmlFor="beginner" className="flex items-center gap-2">
                     <input
                       type="radio"
@@ -280,7 +280,7 @@ const Page: React.FC = () => {
                 <textarea
                   title="text"
                   placeholder="Goals for the training..."
-                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[90vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none align-top"
+                  className=" placeholder-gray-400 bg-inherit border border-white px-4 py-2 w-[85vw] lg:w-[300px] focus:border-[#fab702] focus:outline-none align-top"
                   rows={3}
                 />
               </div>

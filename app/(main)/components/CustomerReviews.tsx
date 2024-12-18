@@ -76,8 +76,8 @@ const CustomerReviews: React.FC = () => {
                   <RiDoubleQuotesL className="text-black h-[40px] w-[40px]" />
                 </div>
                 <div className="w-[80%] mx-auto">
-                  <p className="text-white w-full ml-8">{review.review}</p>
-                  <p className="text-[#fab702] ml-8 mt-8 text-[12px]">
+                  <p className="text-white w-full ml-2 mt-4">{review.review}</p>
+                  <p className="text-[#fab702] ml-2 mt-8 text-[12px]">
                     {review.name}
                   </p>
                 </div>

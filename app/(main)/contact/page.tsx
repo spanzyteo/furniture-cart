@@ -70,7 +70,7 @@ const page = () => {
             </div>
             <div className="text-white border-b border-b-[#FFFFFF33] transition-all duration-300 ease pb-2 mt-2 flex items-center gap-2">
               <p className="text-[#fab702] font-semibold">Email:</p>
-              <p className="text-[16px]">princemfurnishingconcept@gmail.com</p>
+              <p className="text-[12px]">princemfurnishingconcept@gmail.com</p>
             </div>
           </div>
         </div>

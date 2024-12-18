@@ -3,6 +3,8 @@
 import { usePathname } from 'next/navigation'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import { Provider } from 'react-redux'
+import { store } from '../store'
 
 export default function ClientLayout({
   children,
@@ -15,9 +17,11 @@ export default function ClientLayout({
 
   return (
     <>
-      {!isAdminPage && <Navbar />}
-      <main>{children}</main>
-      {!isAdminPage && <Footer />}
+      <Provider store={store}>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </Provider>
     </>
   )
 }

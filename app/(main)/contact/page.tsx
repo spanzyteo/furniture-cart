@@ -1,7 +1,6 @@
 'use client'
 import { Parallax } from 'react-parallax'
 import trainingImg from '../../../public/training-img.jpg'
-import SecondaryFooter from '../components/SecondaryFooter'
 
 const page = () => {
   return (
@@ -75,7 +74,6 @@ const page = () => {
           </div>
         </div>
       </div>
-      <SecondaryFooter />
     </div>
   )
 }

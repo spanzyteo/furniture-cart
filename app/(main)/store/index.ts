@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import menuBarReducer from './menubarSlice'
+import pageDropdownReducer from './pageDropdownSlice'
 
 export const store = configureStore({
     reducer: {
-        menubar: menuBarReducer
+        menubar: menuBarReducer,
+        pageDropdown: pageDropdownReducer
     }
 })
 

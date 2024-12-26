@@ -7,6 +7,9 @@ import Link from 'next/link'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { closeMenu, toggleSwitch } from '../store/menubarSlice'
 import { motion } from 'framer-motion'
+import PageDropdown from './PageDropdown'
+import { toggleDropdown } from '../store/pageDropdownSlice'
+import { FaAngleDown } from 'react-icons/fa6'
 
 const Navbar = () => {
   const dispatch = useAppDispatch()
@@ -18,6 +21,10 @@ const Navbar = () => {
 
   const closeMenubar = () => {
     dispatch(closeMenu())
+  }
+
+  const dropDownToggle = () => {
+    dispatch(toggleDropdown())
   }
 
   const sidebarVariants = {
@@ -32,119 +39,128 @@ const Navbar = () => {
   }
 
   return (
-    <div className="bg-[rgb(24, 25, 27)] flex flex-col">
-      <div className="flex flex-row h-[90px] items-center lg:px-20 px-10 lg:justify-around justify-between">
-        <div className="">
-          <h1 className="text-white text-2xl">PMFC</h1>
-        </div>
-        <div className="lg:flex hidden text-white text-xs uppercase gap-6 font-semibold items-center">
-          <Link href={'/'}>
-          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-            Home
-          </h1>
-          </Link>
-          <VscCircleFilled className="text-[#fab702]" />
-          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-            Pages
-          </h1>
-          <VscCircleFilled className="text-[#fab702]" />
-          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-            Projects
-          </h1>
-          <VscCircleFilled className="text-[#fab702]" />
-          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-            Services
-          </h1>
-          <VscCircleFilled className="text-[#fab702]" />
-          <Link href={'/training'}>
+    <>
+      <div className="bg-[rgb(24, 25, 27)] flex flex-col">
+        <div className="flex flex-row h-[90px] items-center lg:px-20 px-10 lg:justify-around justify-between">
+          <div className="">
+            <h1 className="text-white text-2xl">PMFC</h1>
+          </div>
+          <div className="lg:flex hidden text-white text-xs uppercase gap-6 font-semibold items-center relative">
+            <Link href={'/'}>
+              <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+                Home
+              </h1>
+            </Link>
+            <VscCircleFilled className="text-[#fab702]" />
+            <div className="group">
+              <div className="cursor-pointer leading-[80px]">
+                <h1
+                  className={`cursor-pointer hover:text-[#fab702] transition-all duration-300 ease`}
+                >
+                  Pages
+                </h1>
+              </div>
+              <PageDropdown />
+            </div>
+            <VscCircleFilled className="text-[#fab702]" />
+            <Link href={'/shop'}>
+              <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+                Shop
+              </h1>
+            </Link>
+            <VscCircleFilled className="text-[#fab702]" />
+            <Link href={'/contact'}>
+              <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+                Contact
+              </h1>
+            </Link>
+            <VscCircleFilled className="text-[#fab702]" />
+            <Link href={''}>
+              <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+                Wishlist
+              </h1>
+            </Link>
+            <VscCircleFilled className="text-[#fab702]" />
             <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-              Training
+              Account
+            </h1>
+          </div>
+          <div className="hidden lg:block hover:bg-[#fab702]">
+            <button className="flex items-center justify-center w-[150px] h-[35px] text-white border border-white text-sm gap-1 hover:text-black hover:font-semibold hover:border-black transition-all duration-300 ease group">
+              <h1 className="">Get Quote</h1>
+              <RiArrowRightSLine className="h-[25px] w-[25px] text-[#fab702] font-bold transition-all duration-300 ease group-hover:text-black group-hover:ml-4" />
+            </button>
+          </div>
+          <div className="block lg:hidden">
+            {menubarOpen ? (
+              <FaXmark
+                onClick={() => handleSwitch()}
+                className="text-white h-[40px] w-[40px] hover:bg-[#fab702] hover:text-black transition-all duration-300 ease cursor-pointer"
+              />
+            ) : (
+              <IoMenuSharp
+                onClick={() => handleSwitch()}
+                className="text-white h-[40px] w-[40px] hover:bg-[#fab702] hover:text-black transition-all duration-300 ease cursor-pointer"
+              />
+            )}
+          </div>
+        </div>
+        {/* {menubarOPen && ( */}
+        <motion.div
+          initial="hidden"
+          animate={menubarOpen ? 'visible' : 'hidden'}
+          variants={sidebarVariants}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          className={`flex flex-col items-start text-white text-xs uppercase gap-6 font-semibold px-10 overflow-hidden transition-all duration-500 ease-in-out ${
+            menubarOpen
+              ? 'max-h-[500px] opacity-100 pb-20 mt-8'
+              : 'max-h-0 opacity-0'
+          }`}
+        >
+          <Link href={'/'} onClick={() => closeMenubar()}>
+            <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+              Home
             </h1>
           </Link>
-          <VscCircleFilled className="text-[#fab702]" />
-          <Link href={'/shop'}>
+          <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
+          <div onClick={dropDownToggle} className="w-full">
+            <div className="flex items-center justify-between">
+              <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+                Pages
+              </h1>
+              <FaAngleDown />
+            </div>
+            <PageDropdown />
+          </div>
+          <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
+          <Link href={'/shop'} onClick={() => closeMenubar()}>
             <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
               Shop
             </h1>
           </Link>
-          <VscCircleFilled className="text-[#fab702]" />
-          <Link href={'/contact'}>
-          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-            Contact
-          </h1>
+          <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
+          <Link href={'/contact'} onClick={() => closeMenubar()}>
+            <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+              Contact
+            </h1>
           </Link>
-        </div>
-        <div className="hidden lg:block hover:bg-[#fab702]">
-          <button className="flex items-center justify-center w-[150px] h-[35px] text-white border border-white text-sm gap-1 hover:text-black hover:font-semibold hover:border-black transition-all duration-300 ease group">
-            <h1 className="">Get Quote</h1>
-            <RiArrowRightSLine className="h-[25px] w-[25px] text-[#fab702] font-bold transition-all duration-300 ease group-hover:text-black group-hover:ml-4" />
-          </button>
-        </div>
-        <div className="block lg:hidden">
-          {menubarOpen ? (
-            <FaXmark
-              onClick={() => handleSwitch()}
-              className="text-white h-[40px] w-[40px] hover:bg-[#fab702] hover:text-black transition-all duration-300 ease cursor-pointer"
-            />
-          ) : (
-            <IoMenuSharp
-              onClick={() => handleSwitch()}
-              className="text-white h-[40px] w-[40px] hover:bg-[#fab702] hover:text-black transition-all duration-300 ease cursor-pointer"
-            />
-          )}
-        </div>
+          <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
+          <Link href={''} onClick={() => closeMenubar()}>
+            <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+              Wishlist
+            </h1>
+          </Link>
+          <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
+          <Link href={''} onClick={() => closeMenubar()}>
+            <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+              Account
+            </h1>
+          </Link>
+          <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
+        </motion.div>
+        {/* )} */}
       </div>
-      {/* {menubarOPen && ( */}
-      <motion.div
-        initial="hidden"
-        animate={menubarOpen ? 'visible' : 'hidden'}
-        variants={sidebarVariants}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className={`flex flex-col items-start text-white text-xs uppercase gap-6 font-semibold px-10 overflow-hidden transition-all duration-500 ease-in-out ${
-          menubarOpen
-            ? 'max-h-[500px] opacity-100 pb-20 mt-8'
-            : 'max-h-0 opacity-0'
-        }`}
-      >
-        <Link href={'/'} onClick={() => closeMenubar()}>
-          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-            Home
-          </h1>
-        </Link>
-        <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-        <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-          Pages
-        </h1>
-        <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-        <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-          Projects
-        </h1>
-        <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-        <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-          Services
-        </h1>
-        <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-        <Link href={'/training'} onClick={() => closeMenubar()}>
-          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-            Training
-          </h1>
-        </Link>
-        <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-        <Link href={'/shop'} onClick={() => closeMenubar()}>
-          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-            Shop
-          </h1>
-        </Link>
-        <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-        <Link href={'/contact'} onClick={() => closeMenubar()}>
-          <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-            Contact
-          </h1>
-        </Link>
-        <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-      </motion.div>
-      {/* )} */}
-    </div>
+    </>
   )
 }
 

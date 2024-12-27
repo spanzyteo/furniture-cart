@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Parallax } from 'react-parallax'
 import SecondaryFooter from '../components/SecondaryFooter'
 
-const page = () => {
+const CreateAccount = () => {
   const [offers, setOffers] = useState(false)
   const [isSubscribed, setIsSubscribed] = useState(false)
   const [terms, setTerms] = useState(false)
@@ -190,4 +190,4 @@ const page = () => {
   )
 }
 
-export default page
+export default CreateAccount

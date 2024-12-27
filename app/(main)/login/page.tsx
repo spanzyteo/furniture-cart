@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Parallax } from 'react-parallax'
 import SecondaryFooter from '../components/SecondaryFooter'
 
-const page = () => {
+const Login = () => {
   return (
     <div className="flex flex-col">
       <Parallax
@@ -65,4 +65,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Login

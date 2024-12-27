@@ -2,7 +2,7 @@
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { IoMenuSharp } from 'react-icons/io5'
 import { VscCircleFilled } from 'react-icons/vsc'
-import { FaXmark } from 'react-icons/fa6'
+import { FaAngleUp, FaXmark } from 'react-icons/fa6'
 import Link from 'next/link'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { closeMenu, toggleSwitch } from '../store/menubarSlice'
@@ -10,10 +10,14 @@ import { motion } from 'framer-motion'
 import PageDropdown from './PageDropdown'
 import { toggleDropdown } from '../store/pageDropdownSlice'
 import { FaAngleDown } from 'react-icons/fa6'
+import AccountDropdown from './AccountDropdown'
+import { toggleAccountDropdown } from '../store/accountDropdownSlice'
 
 const Navbar = () => {
   const dispatch = useAppDispatch()
   const menubarOpen = useAppSelector((state) => state.menubar.menubarOpen)
+  const dropdown = useAppSelector((state) => state.pageDropdown.dropdown)
+  const accountDropdown = useAppSelector((state) => state.accountDropdown.dropdown)
 
   const handleSwitch = () => {
     dispatch(toggleSwitch())
@@ -25,6 +29,10 @@ const Navbar = () => {
 
   const dropDownToggle = () => {
     dispatch(toggleDropdown())
+  }
+
+  const accountToggle = () => {
+    dispatch(toggleAccountDropdown())
   }
 
   const sidebarVariants = {
@@ -81,9 +89,14 @@ const Navbar = () => {
               </h1>
             </Link>
             <VscCircleFilled className="text-[#fab702]" />
-            <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-              Account
-            </h1>
+            <div className="group">
+              <div className="cursor-pointer leading-[80px]">
+                <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+                  Account
+                </h1>
+              </div>
+              <AccountDropdown />
+            </div>
           </div>
           <div className="hidden lg:block hover:bg-[#fab702]">
             <button className="flex items-center justify-center w-[150px] h-[35px] text-white border border-white text-sm gap-1 hover:text-black hover:font-semibold hover:border-black transition-all duration-300 ease group">
@@ -113,7 +126,7 @@ const Navbar = () => {
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           className={`flex flex-col items-start text-white text-xs uppercase gap-6 font-semibold px-10 overflow-hidden transition-all duration-500 ease-in-out ${
             menubarOpen
-              ? 'max-h-[500px] opacity-100 pb-20 mt-8'
+              ? 'max-h-[100%] opacity-100 pb-20 mt-8'
               : 'max-h-0 opacity-0'
           }`}
         >
@@ -123,12 +136,12 @@ const Navbar = () => {
             </h1>
           </Link>
           <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-          <div onClick={dropDownToggle} className="w-full">
+          <div onClick={dropDownToggle} className="w-full cursor-pointer">
             <div className="flex items-center justify-between">
               <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
                 Pages
               </h1>
-              <FaAngleDown />
+              {dropdown ? <FaAngleUp /> : <FaAngleDown />}
             </div>
             <PageDropdown />
           </div>
@@ -151,11 +164,15 @@ const Navbar = () => {
             </h1>
           </Link>
           <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-          <Link href={''} onClick={() => closeMenubar()}>
-            <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
-              Account
-            </h1>
-          </Link>
+          <div onClick={accountToggle} className="w-full cursor-pointer">
+            <div className="flex items-center justify-between">
+              <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+                Account
+              </h1>
+              {accountDropdown ? <FaAngleUp /> : <FaAngleDown />}
+            </div>
+            <AccountDropdown />
+          </div>
           <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
         </motion.div>
         {/* )} */}

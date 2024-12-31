@@ -2,7 +2,7 @@
 import { Parallax } from 'react-parallax'
 import ServiceController from '../components/ServiceController'
 
-const page = () => {
+const OfficeDesign = () => {
   return (
     <div className="flex flex-col">
       <Parallax
@@ -62,4 +62,4 @@ const page = () => {
   )
 }
 
-export default page
+export default OfficeDesign

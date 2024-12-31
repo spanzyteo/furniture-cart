@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { Parallax } from 'react-parallax'
 import SecondaryFooter from '../components/SecondaryFooter'
+import Link from 'next/link'
 
 const CreateAccount = () => {
   const [offers, setOffers] = useState(false)
@@ -40,9 +41,11 @@ const CreateAccount = () => {
       </Parallax>
       <h1 className="mt-10 lg:ml-20 ml-4 lg:text-xl text-lg text-gray-300">
         Already have an account?{' '}
-        <span className="text-[#fab702] hover:opacity-75 cursor-pointer">
-          Login instead!
-        </span>
+        <Link href={'/login'}>
+          <span className="text-[#fab702] hover:opacity-75 cursor-pointer">
+            Login instead!
+          </span>
+        </Link>
       </h1>
       <form className="lg:ml-20 ml-4 mt-10">
         <div className="flex flex-col gap-2 text-white">

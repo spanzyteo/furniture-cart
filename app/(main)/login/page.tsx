@@ -53,8 +53,8 @@ const Login = () => {
             addresses, view and track your orders in your account and more.
           </h1>
           <Link
-            href={'/create-account'}
-            className="mt-8 text-lg text-gray-400 hover:text-[#fab702] transition-all duration-500 ease-in-out"
+            href={'/create_account'}
+            className="mt-8 text-lg text-[#fab702] hover:opacity-75 transition-all duration-500 ease-in-out"
           >
             No account? Create one here
           </Link>

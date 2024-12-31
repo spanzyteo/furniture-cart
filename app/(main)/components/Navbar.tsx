@@ -12,12 +12,17 @@ import { toggleDropdown } from '../store/pageDropdownSlice'
 import { FaAngleDown } from 'react-icons/fa6'
 import AccountDropdown from './AccountDropdown'
 import { toggleAccountDropdown } from '../store/accountDropdownSlice'
+import ServiceDropdown from './ServiceDropdown'
+import { serviceToggleDropdown } from '../store/serviceDropdownSlice'
 
 const Navbar = () => {
   const dispatch = useAppDispatch()
   const menubarOpen = useAppSelector((state) => state.menubar.menubarOpen)
   const dropdown = useAppSelector((state) => state.pageDropdown.dropdown)
-  const accountDropdown = useAppSelector((state) => state.accountDropdown.dropdown)
+  const accountDropdown = useAppSelector(
+    (state) => state.accountDropdown.dropdown
+  )
+  const serviceDropdown = useAppSelector((state) => state.serviceDropdown.dropdown)
 
   const handleSwitch = () => {
     dispatch(toggleSwitch())
@@ -33,6 +38,10 @@ const Navbar = () => {
 
   const accountToggle = () => {
     dispatch(toggleAccountDropdown())
+  }
+
+  const serviceToggle = () => {
+    dispatch(serviceToggleDropdown())
   }
 
   const sidebarVariants = {
@@ -69,6 +78,15 @@ const Navbar = () => {
                 </h1>
               </div>
               <PageDropdown />
+            </div>
+            <VscCircleFilled className="text-[#fab702]" />
+            <div className="group">
+              <div className="cursor-pointer leading-[80px]">
+                <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+                  Services
+                </h1>
+              </div>
+              <ServiceDropdown />
             </div>
             <VscCircleFilled className="text-[#fab702]" />
             <Link href={'/shop'}>
@@ -144,6 +162,16 @@ const Navbar = () => {
               {dropdown ? <FaAngleUp /> : <FaAngleDown />}
             </div>
             <PageDropdown />
+          </div>
+          <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
+          <div onClick={serviceToggle} className="w-full cursor-pointer">
+            <div className="flex items-center justify-between">
+              <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
+                Services
+              </h1>
+              {serviceDropdown ? <FaAngleUp /> : <FaAngleDown />}
+            </div>
+            <ServiceDropdown />
           </div>
           <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
           <Link href={'/shop'} onClick={() => closeMenubar()}>

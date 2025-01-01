@@ -4,17 +4,17 @@ import ServiceController from '../components/ServiceController'
 
 const OfficeDesign = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-hidden">
       <Parallax
         strength={300}
         className="h-[230px] w-[100%] bg-cover bg-center flex items-center"
         bgImage={'/services-bg.jpg'}
       >
-        <h1 className="uppercase font-thin text-4xl text-white lg:ml-20 ml-4">
+        <h1 className="uppercase font-thin lg:text-4xl text-2xl text-white lg:ml-20 ml-4">
           Office Design
         </h1>
       </Parallax>
-      <div className="flex lg:flex-row flex-col justify-center lg:px-16 ml-8 lg:ml-0 gap-6 mt-20 w-full lg:w-auto">
+      <div className="flex lg:flex-row flex-col justify-center lg:px-16 ml-4 lg:ml-0 gap-6 mt-20 w-full lg:w-auto">
         <ServiceController />
         <div className="flex flex-col gap-6 text-[#BBBBBB]">
           <h1 className="w-[85%] lg:w-[406px]">

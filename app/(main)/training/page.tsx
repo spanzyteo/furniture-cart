@@ -51,13 +51,23 @@ const Page: React.FC = () => {
       <div className="flex flex-col">
         <Parallax
           strength={300}
-          className="h-[230px] w-[100%] bg-cover bg-center flex items-center"
+          className="h-[230px] w-[100%] bg-cover bg-center lg:flex hidden items-center"
           bgImage={trainingImg.src}
         >
           <h1 className="font-bold text-3xl text-white ml-20">
             Furniture Trainee Registration
           </h1>
         </Parallax>
+        <div className="h-[230px] w-[100%] lg:hidden block relative">
+          <img
+            src={trainingImg.src}
+            alt="img"
+            className="h-full w-full object-cover"
+          />
+          <h1 className="font-bold text-2xl text-white z-10 absolute top-24 left-3">
+            Furniture Trainee Registration
+          </h1>
+        </div>
         <form>
           <div className="mt-20 flex flex-col lg:flex-row lg:justify-around ml-4 lg:ml-0">
             <div className="flex flex-col text-white gap-5">

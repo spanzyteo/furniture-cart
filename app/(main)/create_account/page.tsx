@@ -32,13 +32,23 @@ const CreateAccount = () => {
     <div className="flex flex-col">
       <Parallax
         strength={300}
-        className="h-[230px] w-[100%] bg-cover bg-center flex items-center"
+        className="h-[230px] w-[100%] bg-cover bg-center lg:flex hidden items-center"
         bgImage={'/account-bg.jpg'}
       >
         <h1 className="font-bold text-3xl text-white lg:ml-20 ml-10">
           Create an account
         </h1>
       </Parallax>
+      <div className="h-[230px] w-[100%] lg:hidden block relative">
+        <img
+          src={'/account-bg.jpg'}
+          alt="img"
+          className="h-full w-full object-cover"
+        />
+        <h1 className="font-bold text-3xl text-white z-10 absolute top-24 left-3">
+          Create an account
+        </h1>
+      </div>
       <h1 className="mt-10 lg:ml-20 ml-4 lg:text-xl text-lg text-gray-300">
         Already have an account?{' '}
         <Link href={'/login'}>

@@ -13,11 +13,19 @@ const Page: React.FC = () => {
       <div className="flex flex-col ">
         <Parallax
           strength={300}
-          className="h-[230px] w-[100%] bg-cover bg-center flex items-center"
+          className="h-[230px] w-[100%] bg-cover bg-center lg:flex hidden items-center"
           bgImage={bgProduct.src}
         >
           <h1 className="font-bold text-3xl text-white ml-20">Our Products</h1>
         </Parallax>
+        <div className="h-[230px] w-[100%] lg:hidden block relative">
+          <img
+            src={bgProduct.src}
+            alt="img"
+            className="h-full w-full object-cover"
+          />
+          <h1 className="font-bold text-2xl text-white z-10 absolute top-24 left-3">Our Products</h1>
+        </div>
         <div className="mt-28 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-10">
           {Product.map((item) => (
             <div

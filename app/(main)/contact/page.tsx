@@ -7,13 +7,23 @@ const page = () => {
     <div className="flex flex-col">
       <Parallax
         strength={300}
-        className="h-[230px] w-[100%] bg-cover bg-center flex items-center"
+        className="h-[230px] w-[100%] bg-cover bg-center lg:flex hidden items-center"
         bgImage={trainingImg.src}
       >
         <h1 className="uppercase font-thin text-4xl text-white ml-20">
           Contact
         </h1>
       </Parallax>
+      <div className="h-[230px] w-[100%] lg:hidden block relative">
+        <img
+          src={trainingImg.src}
+          alt="img"
+          className="h-full w-full object-cover"
+        />
+        <h1 className="font-bold text-3xl text-white z-10 absolute top-24 left-3">
+          Contact
+        </h1>
+      </div>
       <div className="flex flex-col lg:flex-row mx-auto mt-20 gap-16">
         <form>
           <div className="flex lg:flex-row flex-col mx-auto gap-16">

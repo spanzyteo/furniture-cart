@@ -8,11 +8,21 @@ const Login = () => {
     <div className="flex flex-col">
       <Parallax
         strength={300}
-        className="h-[230px] w-[100%] bg-cover bg-center flex items-center"
+        className="h-[230px] w-[100%] bg-cover bg-center lg:flex hidden items-center"
         bgImage={'/account-bg.jpg'}
       >
         <h1 className="font-bold text-3xl text-white lg:ml-20 ml-10">Login</h1>
       </Parallax>
+      <div className="h-[230px] w-[100%] lg:hidden block relative">
+        <img
+          src={'/account-bg.jpg'}
+          alt="img"
+          className="h-full w-full object-cover"
+        />
+        <h1 className="font-bold text-3xl text-white z-10 absolute top-24 left-3">
+          Login
+        </h1>
+      </div>
       <div className="flex lg:flex-row flex-col lg:px-20 mt-10 gap-6 ml-4 lg:ml-0">
         <div className="flex flex-col">
           <h1 className="text-white font-bold lg:text-2xl text-lg">Login</h1>

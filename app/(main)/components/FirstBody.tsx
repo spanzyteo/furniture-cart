@@ -28,7 +28,13 @@ const FirstBody: React.FC = () => {
                   {item.content}
                 </div>
                 <div className="w-[340px] md:w-[240px] xl:w-[380px] xl:h-[171px] md:h-[103px] h-[169px]">
-                  <Image src={item.image} className="object-cover h-full w-full" alt="item-image" width={380} height={171} />
+                  <Image
+                    src={item.image}
+                    className="object-cover h-full w-full"
+                    alt="item-image"
+                    width={380}
+                    height={171}
+                  />
                 </div>
               </div>
             ))}
@@ -38,7 +44,12 @@ const FirstBody: React.FC = () => {
       <Parallax
         strength={300}
         className="h-[1633px] lg:h-[700px] sm:h-[1445px] mt-20 bg2"
-        bgImage={"/bg-2.jpg"}
+        bgImage={'/bg-2.jpg'}
+        bgImageStyle={{
+          backgroundSize: 'cover',
+          backgroundPosition: 'left',
+          objectFit: 'cover', // Ensures the image maintains its aspect ratio
+        }}
       >
         <div className="flex flex-col items-center">
           <div className="mt-20">

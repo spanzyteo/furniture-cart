@@ -22,7 +22,9 @@ const Navbar = () => {
   const accountDropdown = useAppSelector(
     (state) => state.accountDropdown.dropdown
   )
-  const serviceDropdown = useAppSelector((state) => state.serviceDropdown.dropdown)
+  const serviceDropdown = useAppSelector(
+    (state) => state.serviceDropdown.dropdown
+  )
 
   const handleSwitch = () => {
     dispatch(toggleSwitch())
@@ -58,7 +60,7 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-[rgb(24, 25, 27)] flex flex-col">
-        <div className="flex flex-row h-[90px] items-center lg:px-20 px-10 lg:justify-around justify-between">
+        <div className="flex flex-row h-[90px] items-center lg:px-20 px-6 lg:justify-around justify-between">
           <div className="">
             <h1 className="text-white text-2xl">PMFC</h1>
           </div>
@@ -116,12 +118,14 @@ const Navbar = () => {
               <AccountDropdown />
             </div>
           </div>
-          <div className="hidden lg:block hover:bg-[#fab702]">
-            <button className="flex items-center justify-center w-[150px] h-[35px] text-white border border-white text-sm gap-1 hover:text-black hover:font-semibold hover:border-black transition-all duration-300 ease group">
-              <h1 className="">Get Quote</h1>
-              <RiArrowRightSLine className="h-[25px] w-[25px] text-[#fab702] font-bold transition-all duration-300 ease group-hover:text-black group-hover:ml-4" />
-            </button>
-          </div>
+          <Link href={'/get-quote'}>
+            <div className="hidden lg:block hover:bg-[#fab702]">
+              <button className="flex items-center justify-center w-[150px] h-[35px] text-white border border-white text-sm gap-1 hover:text-black hover:font-semibold hover:border-black transition-all duration-300 ease group">
+                <h1 className="">Get Quote</h1>
+                <RiArrowRightSLine className="h-[25px] w-[25px] text-[#fab702] font-bold transition-all duration-300 ease group-hover:text-black group-hover:ml-4" />
+              </button>
+            </div>
+          </Link>
           <div className="block lg:hidden">
             {menubarOpen ? (
               <FaXmark
@@ -186,7 +190,7 @@ const Navbar = () => {
             </h1>
           </Link>
           <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
-          <Link href={''} onClick={() => closeMenubar()}>
+          <Link href={''}>
             <h1 className="cursor-pointer hover:text-[#fab702] transition-all duration-300 ease">
               Wishlist
             </h1>
@@ -202,6 +206,14 @@ const Navbar = () => {
             <AccountDropdown />
           </div>
           <div className="w-full h-[1px] border-t border-t-[#333333]"></div>
+          <Link href={'/get-quote'} onClick={() => closeMenubar()}>
+            <div className="block lg:hidden hover:bg-[#fab702]">
+              <button className="flex items-center justify-center w-[150px] h-[35px] text-white border border-white text-sm gap-1 hover:text-black hover:font-semibold hover:border-black transition-all duration-300 ease group">
+                <h1 className="">Get Quote</h1>
+                <RiArrowRightSLine className="h-[25px] w-[25px] text-[#fab702] font-bold transition-all duration-300 ease group-hover:text-black group-hover:ml-4" />
+              </button>
+            </div>
+          </Link>
         </motion.div>
         {/* )} */}
       </div>

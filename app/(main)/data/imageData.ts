@@ -1,11 +1,15 @@
-const  commPic = '/comm-pic.jpg'
+const commPic = '/comm-pic.jpg'
+const commPic2 = '/comm-pic2.jpg'
 const hosPic =  '/hos-pic.jpg'
 const hosPic1 = '/hos-pic1.jpg'
+const hosPic2 = '/hos-pic2.jpg'
 const officePic = '/office-pic.jpg'
 const officePic1 = '/office-pic1.jpg'
+const officePic2 = '/office-pic2.jpg'
 const resPic = '/res-pic.jpg'
 const resPic1 =  '/res-pic2.jpg'
 const resPic2 = '/res-pic3.jpg'
+const resPic3 = '/res-pic4.jpg'
 
 
 export interface ImageDataStructure {

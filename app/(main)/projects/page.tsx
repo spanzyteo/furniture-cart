@@ -9,7 +9,7 @@ import GetQuote from './components/GetQuote'
 import SecondaryFooter from '../components/SecondaryFooter'
 
 
-const page = () => {
+const Project = () => {
   const [currentSet, setCurrentSet] = useState<ProjectDataStructure[]>(projectData)
   const [activeSection, setActiveSection] = useState<string>('all')
 
@@ -125,4 +125,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Project

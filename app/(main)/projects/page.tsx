@@ -30,7 +30,7 @@ const Project = () => {
   const buttonClass = (section: string) => {
     return ` ${
       activeSection === section
-        ? 'bg-[#fab702] p-[0.5rem] sm:p-[0.5rem] sm:px-[1rem] px-[1rem] text-[#000000] uppercase'
+        ? 'bg-[#fab702] sm:p-[0.5rem] sm:px-[1rem] px-[0.5rem] text-[#000000] uppercase'
         : 'hover:bg-black p-[0.5rem] sm:p-[0.5rem] sm:px-[1rem] text-[#888888] uppercase'
     }`
   }

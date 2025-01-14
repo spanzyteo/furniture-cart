@@ -8,9 +8,9 @@ import Projects from './components/Projects'
 import GetQuote from './components/GetQuote'
 import SecondaryFooter from '../components/SecondaryFooter'
 
-
 const Project = () => {
-  const [currentSet, setCurrentSet] = useState<ProjectDataStructure[]>(projectData)
+  const [currentSet, setCurrentSet] =
+    useState<ProjectDataStructure[]>(projectData)
   const [activeSection, setActiveSection] = useState<string>('all')
 
   const handleButtonClick = (section: string) => {
@@ -28,14 +28,17 @@ const Project = () => {
   }
 
   const buttonClass = (section: string) => {
-    return ` ${
-      activeSection === section
-        ? 'bg-[#fab702] sm:p-[0.5rem] p-[0.6rem] sm:px-[1rem] px-[1.5rem] text-[#000000] text-[11px] uppercase'
-        : 'hover:bg-black p-[0.5rem] sm:p-[0.5rem] sm:px-[1rem] text-[#888888] text-[11px] uppercase'
+    const commonClasses =
+      'p-[0.6rem] sm:px-[1rem] px-[1.5rem] text-[11px] uppercase transition-all duration-200'
+    const activeClasses = 'bg-[#fab702] text-[#000000]'
+    const inactiveClasses = 'lg:hover:bg-black text-[#888888] bg-none'
+
+    return `${commonClasses} ${
+      activeSection === section ? activeClasses : inactiveClasses
     }`
   }
 
-  const projectSectionProps = { currentSet };
+  const projectSectionProps = { currentSet }
 
   return (
     <div className="flex flex-col">
@@ -56,8 +59,8 @@ const Project = () => {
           Projects
         </h1>
       </div>
-      <div className="flex flex-col mt-10 items-center h-[50px] md:h-[30px] justify-center gap-6 text-[13px]">
-        <div className="flex flex-row gap-6">
+      <div className="flex flex-col mt-16 lg:mt-10 mb-6 lg:mb-0 items-center h-[50px] md:h-[30px] justify-center gap-3 text-[13px]">
+        <div className="flex flex-row lg:gap-6 gap-16">
           <motion.button
             className={buttonClass('all')}
             onClick={() => handleButtonClick('all')}
@@ -75,7 +78,7 @@ const Project = () => {
             Residential
           </motion.button>
           <motion.button
-            className={buttonClass('hospitality')}
+            className={`${buttonClass('hospitality')} hidden lg:block`}
             onClick={() => handleButtonClick('hospitality')}
             whileTap="tap"
             variants={buttonVariants}
@@ -99,7 +102,15 @@ const Project = () => {
             Commercial
           </motion.button>
         </div>
-        <div className="flex flex-row lg:hidden gap-10">
+        <div className="flex flex-row lg:hidden gap-16">
+          <motion.button
+            className={buttonClass('hospitality')}
+            onClick={() => handleButtonClick('hospitality')}
+            whileTap="tap"
+            variants={buttonVariants}
+          >
+            Hospitality
+          </motion.button>
           <motion.button
             className={buttonClass('office')}
             onClick={() => handleButtonClick('office')}
@@ -108,6 +119,8 @@ const Project = () => {
           >
             Office
           </motion.button>
+        </div>
+        <div className="flex lg:hidden">
           <motion.button
             className={buttonClass('commercial')}
             onClick={() => handleButtonClick('commercial')}

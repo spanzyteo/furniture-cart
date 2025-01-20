@@ -4,6 +4,7 @@ import { ReactNode } from 'react'
 import Sidebar from './Sidebar'
 import { Provider } from 'react-redux'
 import { store } from '../store'
+import Header from './Header'
 
 export default function ClientProvider({
   children,
@@ -12,8 +13,11 @@ export default function ClientProvider({
 }>) {
   return (
     <Provider store={store}>
-      <Sidebar />
-      {children}
+      <div className="bg-[#F2F2F2]">
+        <Sidebar />
+        <Header />
+        {children}
+      </div>
     </Provider>
   )
 }

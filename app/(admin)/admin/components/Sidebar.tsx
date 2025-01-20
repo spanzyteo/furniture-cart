@@ -7,6 +7,7 @@ import { MdSpaceDashboard } from 'react-icons/md'
 import { IoIosArrowDown } from 'react-icons/io'
 import { BsBag } from 'react-icons/bs'
 import { MdWidgets } from 'react-icons/md'
+import Link from 'next/link'
 
 
 const Sidebar = () => {
@@ -25,11 +26,11 @@ const Sidebar = () => {
         </div>
         <div className="flex flex-col items-start ml-8 mt-[130px] gap-4">
           <div className="flex items-center justify-between w-[230px]">
-            <div className="flex flex-row items-center justify-between gap-8">
+            <Link href={'/admin'} className="flex flex-row items-center justify-between gap-8">
               <MdSpaceDashboard className="h-[20px] w-[20px]" />
               <h1>Dashboard</h1>
-            </div>
-            <div className="">
+            </Link>
+            {/* <div className="">
               <motion.div
                 animate={{ rotate: sections.dashboard ? 180 : 0 }}
                 initial={{ rotate: 0 }}
@@ -40,9 +41,9 @@ const Sidebar = () => {
                   className="cursor-pointer"
                 />
               </motion.div>
-            </div>
+            </div> */}
           </div>
-          <AnimatePresence>
+          {/* <AnimatePresence>
             {sections.dashboard && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
@@ -55,7 +56,7 @@ const Sidebar = () => {
                 <h1>Reports</h1>
               </motion.div>
             )}
-          </AnimatePresence>
+          </AnimatePresence> */}
           <div className="flex items-center justify-between w-[230px]">
             <div className="flex flex-row items-center justify-between gap-8">
               <BsBag className="h-[20px] w-[20px]" />

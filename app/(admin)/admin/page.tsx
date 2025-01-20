@@ -1,7 +1,16 @@
-import React from 'react'
+import { IoMdMenu } from 'react-icons/io'
+import { IoMdNotificationsOutline } from 'react-icons/io'
+import { FaUser } from 'react-icons/fa'
+import { IoIosSearch } from 'react-icons/io'
+import Header from './components/Header'
+
 
 const Page = () => {
-  return <div className="text-red-700 bg-[#F2F2F2]">page</div>
+  return (
+    <div className="">
+      
+    </div>
+  )
 }
 
 export default Page

@@ -5,6 +5,7 @@ import Sidebar from './Sidebar'
 import { Provider } from 'react-redux'
 import { store } from '../store'
 import Header from './Header'
+import MobileSidebar from './MobileSidebar'
 
 export default function ClientProvider({
   children,
@@ -15,6 +16,7 @@ export default function ClientProvider({
     <Provider store={store}>
       <div className="bg-[#F2F2F2]">
         <Sidebar />
+        <MobileSidebar />
         <Header />
         {children}
       </div>

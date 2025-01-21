@@ -1,14 +1,20 @@
 import React from 'react'
 import { FaUser } from 'react-icons/fa'
 import { IoIosSearch, IoMdMenu, IoMdNotificationsOutline } from 'react-icons/io'
+import { useAppDispatch } from '../store/hooks'
+import { openSidebar } from '../store/sidebarSlice'
 
 const Header = () => {
+  const dispatch = useAppDispatch()
+  const handleOPenSidebar = () => {
+    dispatch(openSidebar())
+  }
   return (
     <div className="flex items-center justify-between pt-7 pb-7 lg:ml-[20rem] text-black">
       <div className="flex items-center">
-        <IoMdMenu className="lg:hidden block h-[30px] w-[30px] ml-4" />
-        <h1 className="text-2xl ml-2 lg:hidden block font-semibold">PMFC</h1>
-        <div className="w-[408px] relative ml-7 h-[46px]">
+        <IoMdMenu onClick={() => handleOPenSidebar()} className="lg:hidden block h-[30px] w-[30px] ml-4 mt-1" />
+        <h1 className="text-2xl ml-4 lg:hidden block font-semibold">PMFC</h1>
+        <div className="w-[408px] relative ml-7 h-[46px] md:block hidden">
           <input
             type="text"
             placeholder="Search..."

@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface SidebarState {
   sections: Record<string, boolean>
+  mobileSidebar: boolean
 }
 
 const initialState: SidebarState = {
@@ -10,6 +11,7 @@ const initialState: SidebarState = {
     products: false,
     widgets: false,
   },
+  mobileSidebar: false
 }
 
 const sidebarSlice = createSlice({
@@ -19,8 +21,14 @@ const sidebarSlice = createSlice({
     toggleSection: (state, action: PayloadAction<string>) => {
       state.sections[action.payload] = !state.sections[action.payload]
     },
+    openSidebar: (state) => {
+      state.mobileSidebar = true
+    },
+    closeSidebar: (state) => {
+      state.mobileSidebar = false
+    }
   },
 })
 
-export const { toggleSection } = sidebarSlice.actions
+export const { toggleSection, openSidebar, closeSidebar } = sidebarSlice.actions
 export default sidebarSlice.reducer

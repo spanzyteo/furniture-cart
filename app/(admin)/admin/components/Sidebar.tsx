@@ -20,13 +20,16 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="bg-white w-[300px] xl:flex flex-col hidden absolute top-2 bottom-0 left-3 rounded-xl">
-        <div className="fixed h-[120px] w-[300px] flex items-center justify-center">
+      <div className="bg-white fixed w-[300px] xl:flex flex-col hidden top-2 bottom-0 left-3 rounded-xl shadow-2xl">
+        <div className=" h-[120px] w-[300px] flex items-center justify-center">
           <h1 className="text-2xl font-semibold">PMFC</h1>
         </div>
-        <div className="flex flex-col items-start ml-8 mt-[130px] gap-4">
+        <div className="flex flex-col items-start ml-8 gap-4">
           <div className="flex items-center justify-between w-[230px]">
-            <Link href={'/admin'} className="flex flex-row items-center justify-between gap-8">
+            <Link
+              href={'/admin'}
+              className="flex flex-row items-center justify-between gap-8"
+            >
               <MdSpaceDashboard className="h-[20px] w-[20px]" />
               <h1>Dashboard</h1>
             </Link>

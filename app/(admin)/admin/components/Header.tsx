@@ -18,7 +18,7 @@ const Header = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="py-[6px] pl-[30px] w-full h-full rounded-xl"
+            className="py-[6px] pl-[30px] w-full h-full rounded-xl focus:outline-none"
           />
           <div className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#fab702] h-full w-[50px] rounded-r-xl flex items-center justify-center">
             <IoIosSearch className="h-[25px] w-[25px] text-white" />

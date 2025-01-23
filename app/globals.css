@@ -8,9 +8,36 @@ body {
   background-color: rgb(24, 25, 27);
 }
 
+/* Scrollbar Track */
 ::-webkit-scrollbar {
-  display: none;
+  width: 8px; /* Vertical scrollbar width */
+  height: 8px; /* Horizontal scrollbar height */
 }
+
+/* Track Background */
+::-webkit-scrollbar-track {
+  background: #f3f4f6; /* Light gray background */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+  background: #9ca3af; /* Gray thumb color */
+  border-radius: 4px; /* Rounded corners */
+  border: 2px solid #f3f4f6; /* Adds padding around the thumb */
+}
+
+/* Scrollbar Thumb Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280; /* Darker gray on hover */
+}
+
+/* Firefox-specific scrollbar styling */
+* {
+  scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  scrollbar-color: #9ca3af #f3f4f6; /* Thumb and track colors */
+}
+
 
 .text {
   font-family: 'Dosis', sans-serif;

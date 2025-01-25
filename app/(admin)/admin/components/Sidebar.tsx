@@ -33,34 +33,11 @@ const Sidebar = () => {
               <MdSpaceDashboard className="h-[20px] w-[20px]" />
               <h1>Dashboard</h1>
             </Link>
-            {/* <div className="">
-              <motion.div
-                animate={{ rotate: sections.dashboard ? 180 : 0 }}
-                initial={{ rotate: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <IoIosArrowDown
-                  onClick={() => handleClick('dashboard')}
-                  className="cursor-pointer"
-                />
-              </motion.div>
-            </div> */}
           </div>
-          {/* <AnimatePresence>
-            {sections.dashboard && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden flex flex-col gap-4 mt-2 ml-12"
-              >
-                <h1>Analytics</h1>
-                <h1>Reports</h1>
-              </motion.div>
-            )}
-          </AnimatePresence> */}
-          <div className="flex items-center justify-between w-[230px]">
+          <div
+            onClick={() => handleClick('products')}
+            className="flex items-center justify-between w-[230px] cursor-pointer"
+          >
             <div className="flex flex-row items-center justify-between gap-8">
               <BsBag className="h-[20px] w-[20px]" />
               <h1>Products</h1>
@@ -71,10 +48,7 @@ const Sidebar = () => {
                 initial={{ rotate: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <IoIosArrowDown
-                  onClick={() => handleClick('products')}
-                  className="cursor-pointer"
-                />
+                <IoIosArrowDown className="cursor-pointer" />
               </motion.div>
             </div>
           </div>
@@ -87,11 +61,8 @@ const Sidebar = () => {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden flex flex-col gap-4 mt-2 ml-12"
               >
-                <h1>Order History</h1>
-                <h1>Products</h1>
-                <h1>Customers</h1>
-                <h1>Add Product</h1>
-                <h1>Reviews</h1>
+                <Link href={'/admin/products'}>Products</Link>
+                <Link href={'/admin/add-new-products'}>Add New Product</Link>
               </motion.div>
             )}
           </AnimatePresence>

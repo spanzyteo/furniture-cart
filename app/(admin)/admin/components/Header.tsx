@@ -2,7 +2,7 @@ import React from 'react'
 import { FaUser } from 'react-icons/fa'
 import { IoIosSearch, IoMdMenu, IoMdNotificationsOutline } from 'react-icons/io'
 import { useAppDispatch } from '../store/hooks'
-import { openSidebar } from '../store/sidebarSlice'
+import { openSidebar } from '../store/mobileSidebarSlice'
 
 const Header = () => {
   const dispatch = useAppDispatch()

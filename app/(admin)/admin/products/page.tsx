@@ -73,7 +73,7 @@ const Products = () => {
                   </td>
                   <td className="lg:px-16 px-8 py-3">
                     <div
-                      className={`text-white font-semibold rounded-[6px] h-[30px] w-[80px] text-center ${
+                      className={`rounded-[6px] h-[30px] w-[85px] flex items-center justify-center ${
                         item.status === 'Approved'
                           ? 'bg-green-100 text-green-600'
                           : 'bg-red-100 text-red-600'
@@ -83,9 +83,9 @@ const Products = () => {
                     </div>
                   </td>
                   <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3">
-                    <MdOutlineRemoveRedEye className="h-[15px] w-[15px] text-purple-400" />
-                    <MdOutlineEdit className="h-[15px] w-[15px] text-blue-400" />
-                    <RiDeleteBin5Line className="h-[15px] w-[15px] text-red-400" />
+                    <MdOutlineRemoveRedEye className="h-[20px] w-[20px] text-purple-400" />
+                    <MdOutlineEdit className="h-[20px] w-[20px] text-blue-400" />
+                    <RiDeleteBin5Line className="h-[20px] w-[20px] text-red-400" />
                   </td>
                 </tr>
               ))}

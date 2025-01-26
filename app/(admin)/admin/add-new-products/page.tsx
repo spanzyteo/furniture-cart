@@ -15,7 +15,7 @@ const AddNewProducts = () => {
      setThumbnailFilename(file ? file.name : 'No file chosen')
    }
   return (
-    <div className="bg-white flex flex-col">
+    <div className="bg-white flex flex-col pb-[3rem]">
       <form>
         <div className="xl:ml-[27rem] mt-8 bg-[#F2F2F2] flex flex-col px-4 w-[90%] lg:w-[777px] rounded-xl mx-auto mb-8 pb-8">
           <h1 className="text-xl font-semibold mt-4">Product Information</h1>
@@ -151,7 +151,7 @@ const AddNewProducts = () => {
         </div>
         <button
           type="submit"
-          className="bg-[#fab702] h-[40px] w-[140px] mx-auto text-white rounded-[5px] mb-10 text-[14px] font-semibold xl:ml-[27rem] hover:text-black hover:opacity-75 active:opacity-55 transition-all duration-500 ease-in-out"
+          className="bg-[#fab702] flex items-center justify-center h-[40px] w-[140px] text-white rounded-[5px] mb-10 text-[14px] font-semibold xl:ml-[27rem] mx-auto hover:text-black hover:opacity-75 active:opacity-55 transition-all duration-500 ease-in-out"
         >
           Submit
         </button>

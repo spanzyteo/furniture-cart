@@ -11,7 +11,7 @@ import DashboardRecentOrder from './components/DashboardRecentOrder'
 const Dashboard = () => {
   
   return (
-    <div className="bg-white flex flex-col">
+    <div className="bg-white flex flex-col pb-[5rem]">
       <div className="grid grid-cols-1 lg:grid-cols-2 mt-8 xl:ml-[20rem] lg:gap-4 gap-4">
         <div className="lg:w-[501px] w-[90%] h-[140px] bg-[#F2F2F2] rounded-xl mx-auto flex items-center justify-between px-7">
           <div className="flex flex-row items-center">

@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { store } from '../store'
 import Header from './Header'
 import MobileSidebar from './MobileSidebar'
+import Footer from './Footer'
 
 export default function ClientProvider({
   children,
@@ -19,6 +20,7 @@ export default function ClientProvider({
         <MobileSidebar />
         <Header />
         {children}
+        <Footer />
       </div>
     </Provider>
   )

@@ -25,7 +25,7 @@ const ProductDropdown = () => {
           <Link href={'/admin/products'} onClick={() => handleCloseSidebar()}>
             Products
           </Link>
-          <h1>Add New Product</h1>
+          <Link href={'/admin/add-new-products'} onClick={() => handleCloseSidebar()}>Add New Product</Link>
         </motion.div>
       )}
     </AnimatePresence>

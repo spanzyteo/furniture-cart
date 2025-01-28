@@ -97,7 +97,7 @@ const Sidebar = () => {
                 className="overflow-hidden flex flex-col gap-4 mt-2 ml-12"
               >
                 <Link href={'/admin/category'}>Category List</Link>
-                <h1 href={'/admin/add-new-category'}>Add New Category</h1>
+                <Link href={'/admin/add-new-category'}>Add New Category</Link>
               </motion.div>
             )}
           </AnimatePresence>

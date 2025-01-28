@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { closeSidebar } from '../store/mobileSidebarSlice'
+import Link from 'next/link'
 
 const CategoryDropdown = () => {
   const sections = useAppSelector((state) => state.sidebar)
@@ -20,8 +21,8 @@ const CategoryDropdown = () => {
           transition={{ duration: 0.3 }}
           className="overflow-hidden flex flex-col gap-4 mt-2 ml-12"
         >
-          <h1>Category List</h1>
-          <h1>Add New Category</h1>
+          <Link href={'/admin/category'}>Category List</Link>
+          <Link href={'/admin/add-new-category'}>Add New Category</Link>
         </motion.div>
       )}
     </AnimatePresence>

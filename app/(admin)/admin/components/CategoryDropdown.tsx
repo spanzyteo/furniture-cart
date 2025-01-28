@@ -1,35 +1,31 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
-import Link from 'next/link'
 import { closeSidebar } from '../store/mobileSidebarSlice'
 
-const ProductDropdown = () => {
+const CategoryDropdown = () => {
   const sections = useAppSelector((state) => state.sidebar)
   const dispatch = useAppDispatch()
-  
+
   const handleCloseSidebar = () => {
     dispatch(closeSidebar())
   }
-
   return (
     <AnimatePresence>
-      {sections.products && (
+      {sections.category && (
         <motion.div
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          transition={{ duration: 0.3 }}
           className="overflow-hidden flex flex-col gap-4 mt-2 ml-12"
         >
-          <Link href={'/admin/products'} onClick={() => handleCloseSidebar()}>
-            Products
-          </Link>
-          <Link href={'/admin/add-new-products'} onClick={() => handleCloseSidebar()}>Add New Product</Link>
+          <h1>Category List</h1>
+          <h1>Add New Category</h1>
         </motion.div>
       )}
     </AnimatePresence>
   )
 }
 
-export default ProductDropdown
+export default CategoryDropdown

@@ -1,6 +1,6 @@
 'use client'
 import { useAppSelector, useAppDispatch } from '../store/hooks'
-import { toggleSection } from '../store/sidebarSlice'
+import { toggleCategory, toggleProducts } from '../store/sidebarSlice'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MdSpaceDashboard } from 'react-icons/md'
@@ -11,11 +11,15 @@ import Link from 'next/link'
 
 
 const Sidebar = () => {
-  const sections = useAppSelector((state) => state.sidebar.sections)
+  const sections = useAppSelector((state) => state.sidebar)
   const dispatch = useAppDispatch()
 
-  const handleClick = (section: string) => {
-    dispatch(toggleSection(section))
+  const handleProductClick = () => {
+    dispatch(toggleProducts())
+  }
+
+  const handleCategoryClick = () => {
+    dispatch(toggleCategory())
   }
 
   return (
@@ -35,7 +39,7 @@ const Sidebar = () => {
             </Link>
           </div>
           <div
-            onClick={() => handleClick('products')}
+            onClick={() => handleProductClick()}
             className="flex items-center justify-between w-[230px] cursor-pointer"
           >
             <div className="flex flex-row items-center justify-between gap-8">
@@ -66,26 +70,25 @@ const Sidebar = () => {
               </motion.div>
             )}
           </AnimatePresence>
-          <div className="flex items-center justify-between w-[230px]">
+          <div onClick={() => handleCategoryClick()} className="flex items-center justify-between w-[230px] cursor-pointer">
             <div className="flex flex-row items-center justify-between gap-8">
               <MdWidgets className="h-[20px] w-[20px]" />
-              <h1>Widgets</h1>
+              <h1>Category</h1>
             </div>
             <div className="">
               <motion.div
-                animate={{ rotate: sections.widgets ? 180 : 0 }}
+                animate={{ rotate: sections.category ? 180 : 0 }}
                 initial={{ rotate: 0 }}
                 transition={{ duration: 0.3 }}
               >
                 <IoIosArrowDown
-                  onClick={() => handleClick('widgets')}
                   className="cursor-pointer"
                 />
               </motion.div>
             </div>
           </div>
           <AnimatePresence>
-            {sections.widgets && (
+            {sections.category && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
@@ -93,7 +96,8 @@ const Sidebar = () => {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden flex flex-col gap-4 mt-2 ml-12"
               >
-                <h1>Widgets</h1>
+                <h1>Category List</h1>
+                <h1>Add New Category</h1>
               </motion.div>
             )}
           </AnimatePresence>

@@ -1,37 +1,34 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface SidebarState {
-  sections: Record<string, boolean>
+  // sections: Record<string, boolean>
   products: boolean
+  category: boolean
 }
 
 const initialState: SidebarState = {
-  sections: {
-    dashboard: false,
-    widgets: false,
-  },
   products: false,
+  category: false,
 }
 
 const sidebarSlice = createSlice({
   name: 'sidebar',
   initialState,
   reducers: {
-    toggleSection: (state, action: PayloadAction<string>) => {
-      state.sections[action.payload] = !state.sections[action.payload]
-    },
     toggleProducts: (state) => {
       state.products = !state.products
-    },
-    resetSections: (state) => {
-      state.sections = {
-        dashboard: false,
-        widgets: false,
+      if (state.products) {
+        state.category = false 
       }
-      state.products = false
+    },
+    toggleCategory: (state) => {
+      state.category = !state.category
+      if (state.category) {
+        state.products = false
+      }
     },
   },
 })
 
-export const { toggleSection, toggleProducts, resetSections} = sidebarSlice.actions
+export const { toggleProducts, toggleCategory } = sidebarSlice.actions
 export default sidebarSlice.reducer

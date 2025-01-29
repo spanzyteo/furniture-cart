@@ -110,6 +110,12 @@ const AddNewCategory = () => {
             </div>
           </div>
         </div>
+        <button
+          type="submit"
+          className="bg-[#fab702] flex items-center justify-center h-[40px] w-[140px] text-white rounded-[5px] mb-10 text-[14px] font-semibold xl:ml-[27rem] mx-auto hover:text-black hover:opacity-75 active:opacity-55 transition-all duration-500 ease-in-out"
+        >
+          Submit
+        </button>
       </form>
     </div>
   )

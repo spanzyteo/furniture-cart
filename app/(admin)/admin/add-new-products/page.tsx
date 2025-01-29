@@ -128,7 +128,7 @@ const AddNewProducts = () => {
                   Choose File
                 </span>
                 <span className="file-name text-sm text-gray-500 ml-4">
-                  {fileName}
+                  {thumbnailFilename}
                 </span>
               </label>
             </div>

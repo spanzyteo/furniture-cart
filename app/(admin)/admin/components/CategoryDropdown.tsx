@@ -21,8 +21,8 @@ const CategoryDropdown = () => {
           transition={{ duration: 0.3 }}
           className="overflow-hidden flex flex-col gap-4 mt-2 ml-12"
         >
-          <Link href={'/admin/category'}>Category List</Link>
-          <Link href={'/admin/add-new-category'}>Add New Category</Link>
+          <Link href={'/admin/category'} onClick={() => handleCloseSidebar()}>Category List</Link>
+          <Link href={'/admin/add-new-category'} onClick={() => handleCloseSidebar()}>Add New Category</Link>
         </motion.div>
       )}
     </AnimatePresence>

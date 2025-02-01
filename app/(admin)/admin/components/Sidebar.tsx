@@ -8,15 +8,14 @@ import { IoIosArrowDown } from 'react-icons/io'
 import { BsBag } from 'react-icons/bs'
 import { MdWidgets } from 'react-icons/md'
 import Link from 'next/link'
+import ProductSidebarSection from './product/ProductSidebarSection'
+import CategorySidebarSection from './category/CategorySidebarSection'
+import TrainingSidebarSection from './training/TrainingSidebarSection'
 
 
 const Sidebar = () => {
   const sections = useAppSelector((state) => state.sidebar)
   const dispatch = useAppDispatch()
-
-  const handleProductClick = () => {
-    dispatch(toggleProducts())
-  }
 
   const handleCategoryClick = () => {
     dispatch(toggleCategory())
@@ -38,69 +37,9 @@ const Sidebar = () => {
               <h1>Dashboard</h1>
             </Link>
           </div>
-          <div
-            onClick={() => handleProductClick()}
-            className="flex items-center justify-between w-[230px] cursor-pointer"
-          >
-            <div className="flex flex-row items-center justify-between gap-8">
-              <BsBag className="h-[20px] w-[20px]" />
-              <h1>Products</h1>
-            </div>
-            <div className="">
-              <motion.div
-                animate={{ rotate: sections.products ? 180 : 0 }}
-                initial={{ rotate: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <IoIosArrowDown className="cursor-pointer" />
-              </motion.div>
-            </div>
-          </div>
-          <AnimatePresence>
-            {sections.products && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden flex flex-col gap-4 mt-2 ml-12"
-              >
-                <Link href={'/admin/products'}>Products</Link>
-                <Link href={'/admin/add-new-products'}>Add New Product</Link>
-              </motion.div>
-            )}
-          </AnimatePresence>
-          <div onClick={() => handleCategoryClick()} className="flex items-center justify-between w-[230px] cursor-pointer">
-            <div className="flex flex-row items-center justify-between gap-8">
-              <MdWidgets className="h-[20px] w-[20px]" />
-              <h1>Category</h1>
-            </div>
-            <div className="">
-              <motion.div
-                animate={{ rotate: sections.category ? 180 : 0 }}
-                initial={{ rotate: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <IoIosArrowDown
-                  className="cursor-pointer"
-                />
-              </motion.div>
-            </div>
-          </div>
-          <AnimatePresence>
-            {sections.category && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden flex flex-col gap-4 mt-2 ml-12"
-              >
-                <Link href={'/admin/category'}>Category List</Link>
-                <Link href={'/admin/add-new-category'}>Add New Category</Link>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <ProductSidebarSection />
+          <CategorySidebarSection />
+          <TrainingSidebarSection />
         </div>
       </div>
     </>

@@ -1,22 +1,25 @@
-import Link from "next/link"
-import { Product, ProductData } from "../../../(main)/data/product"
+'use client'
+import Link from 'next/link'
+import { Product, ProductData } from '../../../(main)/data/product'
 import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { MdOutlineEdit } from 'react-icons/md'
 import { RiDeleteBin5Line } from 'react-icons/ri'
-
+import { useRouter } from 'next/navigation'
 
 const Products = () => {
+  const router = useRouter()
+
   return (
     <div className="bg-white flex flex-col pb-[3rem]">
       <div className="xl:ml-[20rem] mt-8 bg-[#F2F2F2] flex flex-col px-4 w-[90%] lg:w-[1014px] rounded-xl mx-auto mb-8 pb-8">
         <div className="flex items-center justify-between mt-4">
           <h1 className="font-semibold sm:text-xl text-lg">Product List</h1>
-          <Link
-            href={'/admin/add-new-products'}
+          <button
+            onClick={() => router.push('/admin/add-new-products')}
             className="px-7 py-2 bg-[#fab702] rounded-[5px] text-white text-[13px] font-semibold hover:text-black hover:opacity-75 active:opacity-60 transition-all duration-500 ease-in-out"
           >
             Add Product
-          </Link>
+          </button>
         </div>
         <div className="flex items-center justify-between mt-4">
           <div></div>

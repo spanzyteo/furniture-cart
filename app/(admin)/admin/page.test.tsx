@@ -3,16 +3,6 @@ import { render, screen } from '@testing-library/react'
 import Dashboard from './page'
 
 describe('Dashboard Component', () => {
-  jest.mock('./components/DashboardCategory', () => () => (
-    <div data-testid="dashboard-category" />
-  ))
-  jest.mock('./components/DashboardBestSellers', () => () => (
-    <div data-testid="dashboard-best-sellers" />
-  ))
-  jest.mock('./components/DashboardRecentOrder', () => () => (
-    <div data-testid="dashboard-recent-order" />
-  ))
-
   it('matches the snapshot', () => {
     const { asFragment } = render(<Dashboard />)
     expect(asFragment()).toMatchSnapshot()

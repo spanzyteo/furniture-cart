@@ -3,11 +3,12 @@ import { bestSellingData, BestSellingItem } from '../utils/bestSelling'
 
 const DashboardRecentOrder = () => {
   return (
-    <div className="bg-[#F2F2F2] w-[90%] lg:w-[1014px] mt-8 xl:ml-[20.5rem] mx-auto rounded-xl flex flex-col px-7 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 ease-in-out">
+    <div
+      data-testid="dashboard-recent-order"
+      className="bg-[#F2F2F2] w-[90%] lg:w-[1014px] mt-8 xl:ml-[20.5rem] mx-auto rounded-xl flex flex-col px-7 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 ease-in-out"
+    >
       <div className="flex items-center justify-between mt-4">
-        <h1 className="text-lg font-semibold text-[#4A5568]">
-          Recent Orders
-        </h1>
+        <h1 className="text-lg font-semibold text-[#4A5568]">Recent Orders</h1>
         <div className="lg:flex hidden items-center gap-2">
           <h1 className="font-semibold">Sort By:</h1>
           <h1 className="text-[#4A5568]">Today</h1>

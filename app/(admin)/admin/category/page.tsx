@@ -1,20 +1,23 @@
 import Link from 'next/link'
 import { MdOutlineAddBox } from 'react-icons/md'
 import { categories } from '../utils/category'
+import { useRouter } from 'next/navigation'
 
 const Category = () => {
+  const router = useRouter()
+  
   return (
     <div className="bg-white flex flex-col pb-[3rem]">
       <div className="xl:ml-[20rem] mt-8 bg-[#F2F2F2] flex flex-col px-4 w-[90%] lg:w-[1014px] rounded-xl mx-auto mb-8 pb-8">
         <div className="flex items-center justify-between mt-4">
           <h1 className="font-semibold sm:text-xl text-lg">All Category</h1>
-          <Link
-            href={'/admin/add-new-category'}
+          <button
+            onClick={() => router.push('/admin/add-new-category')}
             className="px-7 py-2 bg-[#fab702] rounded-[5px] text-white text-[13px] font-semibold hover:text-black hover:opacity-75 active:opacity-60 transition-all duration-500 ease-in-out flex items-center justify-center gap-2"
           >
             <MdOutlineAddBox className="h-[20px] w-[20px]" />
             Add New
-          </Link>
+          </button>
         </div>
         <div className="flex items-center justify-between mt-4">
           <div></div>
@@ -45,26 +48,27 @@ const Category = () => {
             </thead>
             <tbody>
               {categories.map((item) => {
-              const Icon = item.icon
-              return (
-                <tr key={item.id} className="even:bg-white odd:bg-[#F2F2F2]">
-                  <td className="lg:px-16 px-8 py-3">
-                    <h1 className="text-md text-[#4A5568]">{item.name}</h1>
-                  </td>
-                  <td className="lg:px-16 px-8 py-3">
-                    <div className="w-[80px] h-[80px] flex items-center justify-center rounded-xl">
-                      <img
-                        src={item.image}
-                        alt="img"
-                        className="h-[60px] w-[60px] object-contain"
-                      />
-                    </div>
-                  </td>
-                  <td className="lg:px-24 px-16 py-3 ml-4">
-                    <Icon className="text-[#4A5568] text-4xl" />
-                  </td>
-                </tr>
-              )})}
+                const Icon = item.icon
+                return (
+                  <tr key={item.id} className="even:bg-white odd:bg-[#F2F2F2]">
+                    <td className="lg:px-16 px-8 py-3">
+                      <h1 className="text-md text-[#4A5568]">{item.name}</h1>
+                    </td>
+                    <td className="lg:px-16 px-8 py-3">
+                      <div className="w-[80px] h-[80px] flex items-center justify-center rounded-xl">
+                        <img
+                          src={item.image}
+                          alt="img"
+                          className="h-[60px] w-[60px] object-contain"
+                        />
+                      </div>
+                    </td>
+                    <td className="lg:px-24 px-16 py-3 ml-4">
+                      <Icon className="text-[#4A5568] text-4xl" />
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>

@@ -89,6 +89,7 @@ const AddNewProducts = () => {
                 id="product-image"
                 onChange={handleFileChange}
                 className="hidden"
+                data-testid="product-file"
                 required
               />
 
@@ -114,6 +115,7 @@ const AddNewProducts = () => {
                 type="file"
                 accept="image/*"
                 id="thumbnail-image"
+                data-testid="thumbnail-file"
                 onChange={handleThumbnailFileChange}
                 className="hidden"
                 required

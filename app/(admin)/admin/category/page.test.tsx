@@ -8,16 +8,6 @@ jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
 }))
 
-// const mockPush = jest.fn()
-
-// beforeEach(() => {
-//   jest.clearAllMocks()
-//   ;(useRouter as jest.Mock).mockReturnValue({
-//     push: mockPush,
-//     prefetch: jest.fn(),
-//   })
-// })
-
 describe('Category Component', () => {
   it('matches the snapshot', () => {
     const { asFragment } = render(<Category />)

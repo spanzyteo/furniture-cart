@@ -1,4 +1,4 @@
-import Link from 'next/link'
+'use client'
 import { MdOutlineAddBox } from 'react-icons/md'
 import { categories } from '../utils/category'
 import { useRouter } from 'next/navigation'

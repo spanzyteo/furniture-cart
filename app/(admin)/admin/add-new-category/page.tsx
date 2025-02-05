@@ -69,7 +69,7 @@ const AddNewCategory = () => {
               {...getCategoryRootProps()}
               className="border border-dashed border-gray-400 p-6 rounded-lg text-center cursor-pointer hover:border-gray-600 transition lg:w-[539px] w-full bg-[#F9F9F6 h-[150px] flex items-center justify-center rounded-[12px]"
             >
-              <input {...getCategoryInputProps()} />
+              <input {...getCategoryInputProps()} data-testid="file-input" />
               {categoryImage ? (
                 <img
                   src={categoryImage}
@@ -93,7 +93,10 @@ const AddNewCategory = () => {
               {...getCategoryIconRootProps()}
               className="border border-dashed border-gray-400 p-6 rounded-[12px] text-center cursor-pointer hover:border-gray-600 transition lg:w-[539px] w-full h-[150px] flex items-center justify-center "
             >
-              <input {...getCategoryIconInputProps()} />
+              <input
+                {...getCategoryIconInputProps()}
+                data-testid="file-input"
+              />
               {categoryIcon ? (
                 <img
                   src={categoryIcon}

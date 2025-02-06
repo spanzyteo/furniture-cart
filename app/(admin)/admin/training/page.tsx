@@ -103,23 +103,23 @@ const Training = () => {
                     <h1 className="text-md text-[#4A5568]">
                       {item.previous_experience}
                     </h1>
-                  </td>{' '}
+                  </td>
                   <td className="lg:px-16 px-8 py-3">
                     <h1 className="text-md text-[#4A5568]">
                       {item.joining_date}
                     </h1>
-                  </td>{' '}
+                  </td>
                   <td className="lg:px-16 px-8 py-3">
                     <h1 className="text-md text-[#4A5568]">
                       {item.current_skill_level}
                     </h1>
-                  </td>{' '}
+                  </td>
                   <td className="lg:px-16 px-8 py-3">
                     <h1 className="text-md text-[#4A5568]">{item.goals}</h1>
-                  </td>{' '}
+                  </td>
                   <td className="lg:px-16 px-8 py-3">
                     <h1 className="text-md text-[#4A5568]">{item.id_proof}</h1>
-                  </td>{' '}
+                  </td>
                   <td className="lg:px-16 px-8 py-3">
                     <h1 className="text-md text-[#4A5568]">{item.resume}</h1>
                   </td>

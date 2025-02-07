@@ -10,6 +10,11 @@ export interface OrderData {
   shipping_state: string
   shipping_city: string
   shipping_zip_code: number
+  shipping: number
+  tax: number
+  name: string
+  quantity: number
+  orderId: number
 }
 
 export const order: OrderData[] = [
@@ -25,6 +30,11 @@ export const order: OrderData[] = [
     shipping_state: 'Lagos',
     shipping_city: 'Surulere',
     shipping_zip_code: 101283,
+    shipping: 20000,
+    tax: 3000,
+    name: 'Triple Seat Sofa',
+    quantity: 2,
+    orderId: 6849392994939349,
   },
   {
     id: 1,
@@ -38,6 +48,11 @@ export const order: OrderData[] = [
     shipping_state: 'Abuja',
     shipping_city: 'Garki',
     shipping_zip_code: 900001,
+    shipping: 40000,
+    tax: 3000,
+    name: 'Single Seat Sofa',
+    quantity: 4,
+    orderId: 6849392923339349,
   },
   {
     id: 2,
@@ -51,6 +66,11 @@ export const order: OrderData[] = [
     shipping_state: 'Kano',
     shipping_city: 'Kano Municipal',
     shipping_zip_code: 700231,
+    shipping: 50000,
+    tax: 3000,
+    name: 'Triple Seat Sofa',
+    quantity: 1,
+    orderId: 6341392994939349,
   },
   {
     id: 3,
@@ -64,6 +84,11 @@ export const order: OrderData[] = [
     shipping_state: 'Rivers',
     shipping_city: 'Port Harcourt',
     shipping_zip_code: 500102,
+    shipping: 30000,
+    tax: 3000,
+    name: 'Multifunction Bed Red',
+    quantity: 2,
+    orderId: 6849392994939765,
   },
   {
     id: 4,
@@ -77,6 +102,11 @@ export const order: OrderData[] = [
     shipping_state: 'Lagos',
     shipping_city: 'Ikeja',
     shipping_zip_code: 100271,
+    shipping: 50000,
+    tax: 3000,
+    name: 'Minimalist Corner Desk',
+    quantity: 1,
+    orderId: 6849392994932113,
   },
   {
     id: 5,
@@ -90,6 +120,11 @@ export const order: OrderData[] = [
     shipping_state: 'Enugu',
     shipping_city: 'Enugu',
     shipping_zip_code: 400001,
+    shipping: 70000,
+    tax: 3000,
+    name: 'Decorative Fabric Sofa',
+    quantity: 3,
+    orderId: 6849387324939349,
   },
   {
     id: 6,
@@ -103,6 +138,11 @@ export const order: OrderData[] = [
     shipping_state: 'Ogun',
     shipping_city: 'Abeokuta',
     shipping_zip_code: 110102,
+    shipping: 40000,
+    tax: 3000,
+    name: 'Artistic Wood Hanger',
+    quantity: 4,
+    orderId: 900392994939349,
   },
   {
     id: 7,
@@ -116,6 +156,11 @@ export const order: OrderData[] = [
     shipping_state: 'Oyo',
     shipping_city: 'Ibadan',
     shipping_zip_code: 200252,
+    shipping: 50000,
+    tax: 3000,
+    name: 'Classic Wood Chair',
+    quantity: 1,
+    orderId: 8776392994939349,
   },
   {
     id: 8,
@@ -129,6 +174,11 @@ export const order: OrderData[] = [
     shipping_state: 'Anambra',
     shipping_city: 'Awka',
     shipping_zip_code: 420111,
+    shipping: 70000,
+    tax: 3000,
+    name: 'White Blue Bed',
+    quantity: 2,
+    orderId: 6849392978839349,
   },
   {
     id: 9,
@@ -142,5 +192,10 @@ export const order: OrderData[] = [
     shipping_state: 'Edo',
     shipping_city: 'Benin City',
     shipping_zip_code: 300283,
+    shipping: 20000,
+    tax: 3000,
+    name: 'Woven Dinning Chair',
+    quantity: 1,
+    orderId: 6849392994933727,
   },
 ]

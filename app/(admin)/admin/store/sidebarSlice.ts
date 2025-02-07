@@ -5,12 +5,14 @@ interface SidebarState {
   products: boolean
   category: boolean
   training: boolean
+  order: boolean
 }
 
 const initialState: SidebarState = {
   products: false,
   category: false,
   training: false,
+  order: false,
 }
 
 const sidebarSlice = createSlice({
@@ -22,6 +24,7 @@ const sidebarSlice = createSlice({
       if (state.products) {
         state.category = false
         state.training = false 
+        state.order = false
       }
     },
     toggleCategory: (state) => {
@@ -29,6 +32,7 @@ const sidebarSlice = createSlice({
       if (state.category) {
         state.products = false
         state.training = false
+        state.order = false
       }
     },
     toggleTraining: (state) => {
@@ -36,10 +40,19 @@ const sidebarSlice = createSlice({
       if (state.training) {
         state.category = false
         state.products = false
+        state.order = false
+      }
+    },
+    toggleOrder: (state) => {
+      state.order = !state.order
+      if (state.order) {
+        state.category = false
+        state.products = false
+        state.training = false
       }
     }
   },
 })
 
-export const { toggleProducts, toggleCategory, toggleTraining } = sidebarSlice.actions
+export const { toggleProducts, toggleCategory, toggleTraining, toggleOrder } = sidebarSlice.actions
 export default sidebarSlice.reducer

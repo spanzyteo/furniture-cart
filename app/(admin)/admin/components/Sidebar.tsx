@@ -11,6 +11,7 @@ import Link from 'next/link'
 import ProductSidebarSection from './product/ProductSidebarSection'
 import CategorySidebarSection from './category/CategorySidebarSection'
 import TrainingSidebarSection from './training/TrainingSidebarSection'
+import OrderSidebarSection from './order/OrderSidebarSection'
 
 
 const Sidebar = () => {
@@ -40,6 +41,7 @@ const Sidebar = () => {
           <ProductSidebarSection />
           <CategorySidebarSection />
           <TrainingSidebarSection />
+          <OrderSidebarSection />
         </div>
       </div>
     </>

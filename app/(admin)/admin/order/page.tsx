@@ -1,6 +1,6 @@
 'use client'
 
-import { MdOutlineEdit, MdOutlineRemoveRedEye } from 'react-icons/md'
+import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { order } from '../utils/order'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import Link from 'next/link'
@@ -101,9 +101,15 @@ const Order = () => {
                   </td>
                   <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3">
                     <Link href={`/admin/order/${item.id}`}>
-                      <MdOutlineRemoveRedEye className="h-[20px] w-[20px] text-purple-400" />
+                        <MdOutlineRemoveRedEye
+                          className="h-[20px] w-[20px] text-purple-400"
+                          data-testid="view-icon"
+                        />
                     </Link>
-                    <RiDeleteBin5Line className="h-[20px] w-[20px] text-red-400" />
+                    <RiDeleteBin5Line
+                      className="h-[20px] w-[20px] text-red-400"
+                      data-testid="delete-icon"
+                    />
                   </td>
                 </tr>
               ))}

@@ -74,7 +74,17 @@ const Order = () => {
                     </h1>
                   </td>
                   <td className="lg:px-16 px-8 py-3">
-                    <h1 className="text-md text-[#4A5568]">{item.status}</h1>
+                    <h1
+                      className={`text-md font-semibold rounded-[6px] h-[30px] w-[85px] flex items-center justify-center ${
+                        item.status === 'Delivered'
+                          ? 'text-green-600 bg-green-100'
+                          : item.status === 'Pending'
+                          ? 'text-yellow-500 bg-yellow-100'
+                          : 'text-red-600 bg-red-100'
+                      }`}
+                    >
+                      {item.status}
+                    </h1>
                   </td>
                   <td className="lg:px-16 px-8 py-3">
                     <h1 className="text-md text-[#4A5568]">{item.amount}</h1>
@@ -101,10 +111,10 @@ const Order = () => {
                   </td>
                   <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3">
                     <Link href={`/admin/order/${item.id}`}>
-                        <MdOutlineRemoveRedEye
-                          className="h-[20px] w-[20px] text-purple-400"
-                          data-testid="view-icon"
-                        />
+                      <MdOutlineRemoveRedEye
+                        className="h-[20px] w-[20px] text-purple-400"
+                        data-testid="view-icon"
+                      />
                     </Link>
                     <RiDeleteBin5Line
                       className="h-[20px] w-[20px] text-red-400"

@@ -3,17 +3,6 @@ import Order from './page'
 import { order } from '../utils/order'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
-import { useRouter } from 'next/navigation'
-
-jest.mock('next/navigation', () => ({
-  useRouter: jest.fn(),
-}))
-
-jest.mock('next/link', () => {
-  return ({ href, children }: { href: string; children: React.ReactNode }) => (
-    <a href={href}>{children}</a>
-  )
-})
 
 jest.mock('../utils/order', () => ({
   order: [

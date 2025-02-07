@@ -23,7 +23,7 @@ const OrderId = () => {
         </div>
         <div className="flex lg:flex-row flex-col lg:justify-between gap-6">
           <div className="flex flex-col overflow-x-auto">
-            <div className="lg:w-[700px] w-[100%] flex items-center mt-8 sm:justify-between sm:gap-0 gap-16">
+            <div className="lg:w-[700px] w-[160%] flex items-center mt-8 justify-between sm:gap-0">
               <img
                 className="h-[80px] w-[100px] rounded-[6px]"
                 src={selectedOrder?.image}

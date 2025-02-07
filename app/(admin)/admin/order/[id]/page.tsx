@@ -1,7 +1,7 @@
 'use client'
 import { useParams } from 'next/navigation'
 import { order } from '../../utils/order'
-const page = () => {
+const OrderId = () => {
   const params = useParams()
   const orderId = params.id
 
@@ -118,4 +118,4 @@ const page = () => {
   )
 }
 
-export default page
+export default OrderId

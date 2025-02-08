@@ -12,6 +12,7 @@ import ProductSidebarSection from './product/ProductSidebarSection'
 import CategorySidebarSection from './category/CategorySidebarSection'
 import TrainingSidebarSection from './training/TrainingSidebarSection'
 import OrderSidebarSection from './order/OrderSidebarSection'
+import TrainingProgramSidebarSection from './training_program/TrainingProgramSidebarSection'
 
 
 const Sidebar = () => {
@@ -42,6 +43,7 @@ const Sidebar = () => {
           <CategorySidebarSection />
           <TrainingSidebarSection />
           <OrderSidebarSection />
+          <TrainingProgramSidebarSection />
         </div>
       </div>
     </>

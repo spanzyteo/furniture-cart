@@ -17,6 +17,7 @@ import ProductDropdown from './product/ProductDropdown'
 import CategoryDropdown from './category/CategoryDropdown'
 import TrainingDropdown from './training/TrainingDropdown'
 import OrderDropdown from './order/OrderDropdown'
+import TrainingProgramDropdown from './training_program/TrainingProgramDropdown'
 
 const MobileSidebar = () => {
   const sections = useAppSelector((state) => state.sidebar)
@@ -59,6 +60,7 @@ const MobileSidebar = () => {
             <CategoryDropdown />   
             <TrainingDropdown />
             <OrderDropdown />
+            <TrainingProgramDropdown />
           </div>
         </motion.div>
       )}

@@ -6,6 +6,7 @@ interface SidebarState {
   category: boolean
   training: boolean
   order: boolean
+  training_program: boolean
 }
 
 const initialState: SidebarState = {
@@ -13,6 +14,7 @@ const initialState: SidebarState = {
   category: false,
   training: false,
   order: false,
+  training_program: false,
 }
 
 const sidebarSlice = createSlice({
@@ -25,6 +27,7 @@ const sidebarSlice = createSlice({
         state.category = false
         state.training = false 
         state.order = false
+        state.training_program = false
       }
     },
     toggleCategory: (state) => {
@@ -33,6 +36,7 @@ const sidebarSlice = createSlice({
         state.products = false
         state.training = false
         state.order = false
+        state.training_program = false
       }
     },
     toggleTraining: (state) => {
@@ -41,6 +45,7 @@ const sidebarSlice = createSlice({
         state.category = false
         state.products = false
         state.order = false
+        state.training_program = false
       }
     },
     toggleOrder: (state) => {
@@ -49,10 +54,20 @@ const sidebarSlice = createSlice({
         state.category = false
         state.products = false
         state.training = false
+        state.training_program = false
+      }
+    },
+    toggleTrainingProgram: (state) => {
+      state.training_program = !state.training_program
+      if (state.training_program) {
+        state.category = false
+        state.products = false
+        state.training = false
+        state.order = false
       }
     }
   },
 })
 
-export const { toggleProducts, toggleCategory, toggleTraining, toggleOrder } = sidebarSlice.actions
+export const { toggleProducts, toggleCategory, toggleTraining, toggleOrder, toggleTrainingProgram } = sidebarSlice.actions
 export default sidebarSlice.reducer

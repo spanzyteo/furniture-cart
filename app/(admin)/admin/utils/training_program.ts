@@ -15,7 +15,7 @@ export const trainingProgram: TrainingProgramData[] = [
       'Learn fundamental woodworking skills, including measuring, cutting, and assembling wooden structures.',
     start_date: '2024-03-05',
     end_date: '2024-05-05',
-    price: 300,
+    price: 30000,
   },
   {
     id: 1,
@@ -24,7 +24,7 @@ export const trainingProgram: TrainingProgramData[] = [
       'Master the art of crafting high-quality furniture, from design to finishing touches.',
     start_date: '2024-04-10',
     end_date: '2024-07-10',
-    price: 600,
+    price: 60000,
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ export const trainingProgram: TrainingProgramData[] = [
       'Learn how to upholster chairs, sofas, and other furniture pieces with different fabric and foam techniques.',
     start_date: '2024-05-15',
     end_date: '2024-08-15',
-    price: 500,
+    price: 50000,
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ export const trainingProgram: TrainingProgramData[] = [
       'A hands-on course focused on designing and building cabinets and wardrobes for homes and offices.',
     start_date: '2024-06-01',
     end_date: '2024-09-01',
-    price: 700,
+    price: 70000,
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ export const trainingProgram: TrainingProgramData[] = [
       'Learn how to restore old furniture pieces and apply professional refinishing techniques.',
     start_date: '2024-07-20',
     end_date: '2024-10-20',
-    price: 450,
+    price: 45000,
   },
   {
     id: 5,
@@ -60,7 +60,7 @@ export const trainingProgram: TrainingProgramData[] = [
       'Explore the use of CNC machines and modern technology in furniture making.',
     start_date: '2024-08-05',
     end_date: '2024-11-05',
-    price: 900,
+    price: 90000,
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ export const trainingProgram: TrainingProgramData[] = [
       'Specialize in crafting eco-friendly furniture using bamboo and rattan materials.',
     start_date: '2024-09-01',
     end_date: '2024-12-01',
-    price: 550,
+    price: 55000,
   },
   {
     id: 7,
@@ -78,6 +78,6 @@ export const trainingProgram: TrainingProgramData[] = [
       'Learn how to design custom furniture and create prototypes using digital and traditional methods.',
     start_date: '2024-10-10',
     end_date: '2025-01-10',
-    price: 750,
+    price: 75000,
   },
 ]

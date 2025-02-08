@@ -1,4 +1,4 @@
-interface TrainingProgramData {
+export interface TrainingProgramData {
   id: number
   title: string
   description: string
@@ -7,7 +7,7 @@ interface TrainingProgramData {
   price: number
 }
 
-const trainingProgram: TrainingProgramData[] = [
+export const trainingProgram: TrainingProgramData[] = [
   {
     id: 0,
     title: 'Basic Woodworking Techniques',

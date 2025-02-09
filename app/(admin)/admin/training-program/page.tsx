@@ -63,10 +63,12 @@ const TrainingProgram = () => {
                   </td>
                   <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3">
                     <Link href={`/admin/training-program/${item.id}`}>
-                    <MdOutlineRemoveRedEye className="h-[20px] w-[20px] text-purple-400" />
+                      <MdOutlineRemoveRedEye className="h-[20px] w-[20px] text-purple-400" />
                     </Link>
-                    <MdOutlineEdit className="h-[20px] w-[20px] text-blue-400" />
-                    <RiDeleteBin5Line className="h-[20px] w-[20px] text-red-400" />
+                    <Link href={`/admin/training-program/edit/${item.id}`}>
+                      <MdOutlineEdit className="h-[20px] w-[20px] text-blue-400" />
+                    </Link>
+                    <RiDeleteBin5Line className="h-[20px] w-[20px] text-red-400 cursor-pointer" />
                   </td>
                 </tr>
               ))}

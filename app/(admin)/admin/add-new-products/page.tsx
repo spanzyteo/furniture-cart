@@ -138,7 +138,7 @@ const AddNewProducts = () => {
         </div>
         <div className="xl:ml-[27rem] mt-8 bg-[#F2F2F2] flex flex-col px-4 w-[90%] lg:w-[777px] rounded-xl mx-auto mb-8 pb-8">
           <h1 className="text-xl font-semibold mt-4">Description</h1>
-          <div className="flex flex-col lg:flex-row lg:items-cente justify-between mt-4 gap-3 lg:gap-0">
+          <div className="flex flex-col lg:flex-row justify-between mt-4 gap-3 lg:gap-0">
             <h1 className="font-semibold text-[#4A5568]">
               Product Description
             </h1>

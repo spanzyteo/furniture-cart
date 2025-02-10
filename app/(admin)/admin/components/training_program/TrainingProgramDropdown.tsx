@@ -46,8 +46,17 @@ const TrainingProgramDropdown = () => {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden flex flex-col gap-4 mt-2 ml-14"
           >
-            <Link href={'/admin/training-program'} onClick={() => handleCloseSidebar()}>
+            <Link
+              href={'/admin/training-program'}
+              onClick={() => handleCloseSidebar()}
+            >
               Training Program List
+            </Link>
+            <Link
+              href={'/admin/add-new-training-program'}
+              onClick={() => handleCloseSidebar()}
+            >
+              Add New Training Program 
             </Link>
           </motion.div>
         )}

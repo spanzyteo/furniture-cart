@@ -43,6 +43,9 @@ const TrainingProgramSidebarSection = () => {
             className="overflow-hidden flex flex-col gap-4 mt-2 ml-14"
           >
             <Link href={'/admin/training-program'}>Training Program List</Link>
+            <Link href={'/admin/add-new-training-program'}>
+              Add New Training Program
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

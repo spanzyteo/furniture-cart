@@ -7,6 +7,7 @@ interface SidebarState {
   training: boolean
   order: boolean
   training_program: boolean
+  enrollment: boolean
 }
 
 const initialState: SidebarState = {
@@ -15,6 +16,7 @@ const initialState: SidebarState = {
   training: false,
   order: false,
   training_program: false,
+  enrollment: false,
 }
 
 const sidebarSlice = createSlice({
@@ -25,9 +27,10 @@ const sidebarSlice = createSlice({
       state.products = !state.products
       if (state.products) {
         state.category = false
-        state.training = false 
+        state.training = false
         state.order = false
         state.training_program = false
+        state.enrollment = false
       }
     },
     toggleCategory: (state) => {
@@ -37,6 +40,7 @@ const sidebarSlice = createSlice({
         state.training = false
         state.order = false
         state.training_program = false
+        state.enrollment = false
       }
     },
     toggleTraining: (state) => {
@@ -46,6 +50,7 @@ const sidebarSlice = createSlice({
         state.products = false
         state.order = false
         state.training_program = false
+        state.enrollment = false
       }
     },
     toggleOrder: (state) => {
@@ -55,6 +60,7 @@ const sidebarSlice = createSlice({
         state.products = false
         state.training = false
         state.training_program = false
+        state.enrollment = false
       }
     },
     toggleTrainingProgram: (state) => {
@@ -64,10 +70,28 @@ const sidebarSlice = createSlice({
         state.products = false
         state.training = false
         state.order = false
+        state.enrollment = false
       }
-    }
+    },
+    toggleEnrollment: (state) => {
+      state.enrollment = !state.enrollment
+      if (state.enrollment) {
+        state.category = false
+        state.products = false
+        state.training = false
+        state.order = false
+        state.training_program = false
+      }
+    },
   },
 })
 
-export const { toggleProducts, toggleCategory, toggleTraining, toggleOrder, toggleTrainingProgram } = sidebarSlice.actions
+export const {
+  toggleProducts,
+  toggleCategory,
+  toggleTraining,
+  toggleOrder,
+  toggleTrainingProgram,
+  toggleEnrollment,
+} = sidebarSlice.actions
 export default sidebarSlice.reducer

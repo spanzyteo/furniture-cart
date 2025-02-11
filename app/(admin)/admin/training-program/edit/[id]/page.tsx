@@ -1,6 +1,7 @@
 'use client'
 import { useParams } from 'next/navigation'
 import { trainingProgram } from '../../../utils/training_program'
+import { useEffect, useState } from 'react'
 
 const EditTrainingProgram = () => {
   const params = useParams()
@@ -10,6 +11,21 @@ const EditTrainingProgram = () => {
   const selectedProgram = trainingProgram.find(
     (item) => item.id === Number(trainingProgramId)
   )
+
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+
+  useEffect(() => {
+    if (selectedProgram) {
+      setTitle(selectedProgram.title)
+      setDescription(selectedProgram.description)
+      setStartDate(selectedProgram.start_date)
+      setEndDate(selectedProgram.end_date)
+    }
+  }, [selectedProgram])
+
   return (
     <div className="bg-white flex flex-col pb-[4rem]">
       <form>
@@ -26,7 +42,8 @@ const EditTrainingProgram = () => {
               <input
                 type="text"
                 placeholder="Title"
-                value={selectedProgram?.title}
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
                 className="border border-[#EFEFEF] bg-[#F9F9F6] lg:w-[539px] w-full py-[10px] pl-3 focus:outline-none rounded-[5px] text-[#4A5568]"
                 required
               />
@@ -36,7 +53,8 @@ const EditTrainingProgram = () => {
               <textarea
                 title="text"
                 placeholder="Description..."
-                value={selectedProgram?.description}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 rows={3}
                 className="border border-[#EFEFEF] bg-[#F9F9F6] lg:w-[539px] w-full py-[10px] pl-3 focus:outline-none rounded-[5px] text-[#4A5568]"
                 required
@@ -47,7 +65,8 @@ const EditTrainingProgram = () => {
               <input
                 type="text"
                 placeholder="Start Date"
-                value={selectedProgram?.start_date}
+                value={startDate}
+                onChange={(e) => e.target.value}
                 className="border border-[#EFEFEF] bg-[#F9F9F6] lg:w-[539px] w-full py-[10px] pl-3 focus:outline-none rounded-[5px] text-[#4A5568]"
                 required
               />
@@ -57,7 +76,7 @@ const EditTrainingProgram = () => {
               <input
                 type="text"
                 placeholder="End Date"
-                value={selectedProgram?.end_date}
+                value={endDate}
                 className="border border-[#EFEFEF] bg-[#F9F9F6] lg:w-[539px] w-full py-[10px] pl-3 focus:outline-none rounded-[5px] text-[#4A5568]"
                 required
               />

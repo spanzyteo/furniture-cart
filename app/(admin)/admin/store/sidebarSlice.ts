@@ -10,6 +10,7 @@ interface SidebarState {
   enrollment: boolean
   testimonial: boolean
   quotation: boolean
+  services: boolean
 }
 
 const initialState: SidebarState = {
@@ -21,6 +22,7 @@ const initialState: SidebarState = {
   enrollment: false,
   testimonial: false,
   quotation: false,
+  services: false,
 }
 
 const sidebarSlice = createSlice({
@@ -37,6 +39,7 @@ const sidebarSlice = createSlice({
         state.enrollment = false
         state.testimonial = false
         state.quotation = false
+        state.services = false
       }
     },
     toggleCategory: (state) => {
@@ -49,6 +52,7 @@ const sidebarSlice = createSlice({
         state.enrollment = false
         state.testimonial = false
         state.quotation = false
+        state.services = false
       }
     },
     toggleTraining: (state) => {
@@ -61,6 +65,7 @@ const sidebarSlice = createSlice({
         state.enrollment = false
         state.testimonial = false
         state.quotation = false
+        state.services = false
       }
     },
     toggleOrder: (state) => {
@@ -73,6 +78,7 @@ const sidebarSlice = createSlice({
         state.enrollment = false
         state.testimonial = false
         state.quotation = false
+        state.services = false
       }
     },
     toggleTrainingProgram: (state) => {
@@ -85,6 +91,7 @@ const sidebarSlice = createSlice({
         state.enrollment = false
         state.testimonial = false
         state.quotation = false
+        state.services = false
       }
     },
     toggleEnrollment: (state) => {
@@ -97,6 +104,7 @@ const sidebarSlice = createSlice({
         state.training_program = false
         state.testimonial = false
         state.quotation = false
+        state.services = false
       }
     },
     toggleTestimonial: (state) => {
@@ -109,6 +117,7 @@ const sidebarSlice = createSlice({
         state.training_program = false
         state.enrollment = false
         state.quotation = false
+        state.services = false
       }
     },
     toggleQuotation: (state) => {
@@ -121,6 +130,20 @@ const sidebarSlice = createSlice({
         state.training_program = false
         state.enrollment = false
         state.testimonial = false
+        state.services = false
+      }
+    },
+    toggleServices: (state) => {
+      state.services = !state.services
+      if (state.services) {
+        state.category = false
+        state.products = false
+        state.training = false
+        state.order = false
+        state.training_program = false
+        state.enrollment = false
+        state.testimonial = false
+        state.quotation = false
       }
     },
   },
@@ -135,5 +158,6 @@ export const {
   toggleEnrollment,
   toggleTestimonial,
   toggleQuotation,
+  toggleServices
 } = sidebarSlice.actions
 export default sidebarSlice.reducer

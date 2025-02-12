@@ -1,15 +1,7 @@
 'use client'
 import { useAppSelector, useAppDispatch } from '../store/hooks'
-import {
-  toggleCategory,
-  toggleProducts,
-  toggleTraining,
-} from '../store/sidebarSlice'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MdSpaceDashboard } from 'react-icons/md'
-import { IoIosArrowDown } from 'react-icons/io'
-import { BsBag } from 'react-icons/bs'
-import { MdWidgets } from 'react-icons/md'
 import Link from 'next/link'
 import { FaXmark } from 'react-icons/fa6'
 import { closeSidebar } from '../store/mobileSidebarSlice'
@@ -20,9 +12,9 @@ import OrderDropdown from './order/OrderDropdown'
 import TrainingProgramDropdown from './training_program/TrainingProgramDropdown'
 import EnrollmentDropdown from './enrollment/EnrollmentDropdown'
 import QuotationDropdown from './quotation/QuotationDropdown'
+import ServiceDropdown from './services/ServiceDropdown'
 
 const MobileSidebar = () => {
-  const sections = useAppSelector((state) => state.sidebar)
   const dispatch = useAppDispatch()
   const sidebar = useAppSelector((state) => state.mobileSidebar.mobileSidebar)
 
@@ -65,6 +57,7 @@ const MobileSidebar = () => {
             <TrainingProgramDropdown />
             <EnrollmentDropdown />
             <QuotationDropdown />
+            <ServiceDropdown />
           </div>
         </motion.div>
       )}

@@ -66,7 +66,7 @@ const EditTrainingProgram = () => {
                 type="text"
                 placeholder="Start Date"
                 value={startDate}
-                onChange={(e) => e.target.value}
+                onChange={(e) => setStartDate(e.target.value)}
                 className="border border-[#EFEFEF] bg-[#F9F9F6] lg:w-[539px] w-full py-[10px] pl-3 focus:outline-none rounded-[5px] text-[#4A5568]"
                 required
               />
@@ -77,6 +77,7 @@ const EditTrainingProgram = () => {
                 type="text"
                 placeholder="End Date"
                 value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
                 className="border border-[#EFEFEF] bg-[#F9F9F6] lg:w-[539px] w-full py-[10px] pl-3 focus:outline-none rounded-[5px] text-[#4A5568]"
                 required
               />

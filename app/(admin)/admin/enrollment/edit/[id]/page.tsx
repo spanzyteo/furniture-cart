@@ -6,7 +6,6 @@ const EditEnrollmentId = () => {
   const params = useParams()
   const enrollmentId = params.id
 
-  // Find the order based on the ID
   const selectedEnrollment = enrollment.find(
     (item) => item.id === Number(enrollmentId)
   )

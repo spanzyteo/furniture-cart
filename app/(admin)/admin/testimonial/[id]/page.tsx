@@ -5,7 +5,6 @@ const TestimonialId = () => {
   const params = useParams()
   const testimonialId = params.id
 
-  // Find the order based on the ID
   const selectedTestimonial = testimonial.find(
     (item) => item.id === Number(testimonialId)
   )

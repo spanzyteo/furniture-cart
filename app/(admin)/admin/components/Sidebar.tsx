@@ -15,6 +15,7 @@ import OrderSidebarSection from './order/OrderSidebarSection'
 import TrainingProgramSidebarSection from './training_program/TrainingProgramSidebarSection'
 import EnrollmentSidebarSection from './enrollment/EnrollmentSidebarSection'
 import TestimonialSidebarSection from './testimonial/TestimonialSidebarSection'
+import QuotationSidebarSection from './quotation/QuotationSidebarSection'
 
 
 const Sidebar = () => {
@@ -48,6 +49,7 @@ const Sidebar = () => {
           <TrainingProgramSidebarSection />
           <EnrollmentSidebarSection />
           <TestimonialSidebarSection />
+          <QuotationSidebarSection />
         </div>
       </div>
     </>

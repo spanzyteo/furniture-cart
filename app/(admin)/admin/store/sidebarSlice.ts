@@ -9,6 +9,7 @@ interface SidebarState {
   training_program: boolean
   enrollment: boolean
   testimonial: boolean
+  quotation: boolean
 }
 
 const initialState: SidebarState = {
@@ -19,6 +20,7 @@ const initialState: SidebarState = {
   training_program: false,
   enrollment: false,
   testimonial: false,
+  quotation: false,
 }
 
 const sidebarSlice = createSlice({
@@ -34,6 +36,7 @@ const sidebarSlice = createSlice({
         state.training_program = false
         state.enrollment = false
         state.testimonial = false
+        state.quotation = false
       }
     },
     toggleCategory: (state) => {
@@ -45,6 +48,7 @@ const sidebarSlice = createSlice({
         state.training_program = false
         state.enrollment = false
         state.testimonial = false
+        state.quotation = false
       }
     },
     toggleTraining: (state) => {
@@ -56,6 +60,7 @@ const sidebarSlice = createSlice({
         state.training_program = false
         state.enrollment = false
         state.testimonial = false
+        state.quotation = false
       }
     },
     toggleOrder: (state) => {
@@ -67,6 +72,7 @@ const sidebarSlice = createSlice({
         state.training_program = false
         state.enrollment = false
         state.testimonial = false
+        state.quotation = false
       }
     },
     toggleTrainingProgram: (state) => {
@@ -78,6 +84,7 @@ const sidebarSlice = createSlice({
         state.order = false
         state.enrollment = false
         state.testimonial = false
+        state.quotation = false
       }
     },
     toggleEnrollment: (state) => {
@@ -89,6 +96,7 @@ const sidebarSlice = createSlice({
         state.order = false
         state.training_program = false
         state.testimonial = false
+        state.quotation = false
       }
     },
     toggleTestimonial: (state) => {
@@ -100,6 +108,19 @@ const sidebarSlice = createSlice({
         state.order = false
         state.training_program = false
         state.enrollment = false
+        state.quotation = false
+      }
+    },
+    toggleQuotation: (state) => {
+      state.quotation = !state.quotation
+      if (state.quotation) {
+        state.category = false
+        state.products = false
+        state.training = false
+        state.order = false
+        state.training_program = false
+        state.enrollment = false
+        state.testimonial = false
       }
     },
   },
@@ -113,5 +134,6 @@ export const {
   toggleTrainingProgram,
   toggleEnrollment,
   toggleTestimonial,
+  toggleQuotation,
 } = sidebarSlice.actions
 export default sidebarSlice.reducer

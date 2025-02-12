@@ -3,7 +3,7 @@ import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { quotation } from '../../../utils/quotation'
 
-const page = () => {
+const EditQuotation = () => {
   const params = useParams()
   const quotationId = params.id
 
@@ -147,4 +147,4 @@ const page = () => {
   )
 }
 
-export default page
+export default EditQuotation

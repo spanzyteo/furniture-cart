@@ -2,11 +2,10 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { closeSidebar } from '../../store/mobileSidebarSlice'
-import { toggleEnrollment } from '../../store/sidebarSlice'
 import { IoIosArrowDown } from 'react-icons/io'
-import { PiStudentDuotone } from 'react-icons/pi'
-
-const EnrollmentDropdown = () => {
+import { MdOutlineRateReview } from 'react-icons/md'
+import { toggleTestimonial } from '../../store/sidebarSlice'
+const TestimonialDropdown = () => {
   const sections = useAppSelector((state) => state.sidebar)
   const dispatch = useAppDispatch()
 
@@ -14,22 +13,22 @@ const EnrollmentDropdown = () => {
     dispatch(closeSidebar())
   }
 
-  const handleEnrollmentClick = () => {
-    dispatch(toggleEnrollment())
+  const handleTestimonialClick = () => {
+    dispatch(toggleTestimonial())
   }
   return (
     <>
       <div
-        onClick={() => handleEnrollmentClick()}
+        onClick={() => handleTestimonialClick()}
         className="flex items-center justify-between w-[230px]"
       >
         <div className="flex flex-row items-center justify-between gap-8">
-          <PiStudentDuotone className="h-[20px] w-[20px]" />
-          <h1>Enrollment</h1>
+          <MdOutlineRateReview className="h-[20px] w-[20px]" />
+          <h1>Testimonial</h1>
         </div>
         <div className="">
           <motion.div
-            animate={{ rotate: sections.enrollment ? 180 : 0 }}
+            animate={{ rotate: sections.testimonial ? 180 : 0 }}
             initial={{ rotate: 0 }}
             transition={{ duration: 0.3 }}
           >
@@ -38,7 +37,7 @@ const EnrollmentDropdown = () => {
         </div>
       </div>
       <AnimatePresence>
-        {sections.enrollment && (
+        {sections.testimonial && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
@@ -47,16 +46,16 @@ const EnrollmentDropdown = () => {
             className="overflow-hidden flex flex-col gap-4 mt-2 ml-14"
           >
             <Link
-              href={'/admin/enrollment'}
+              href={'/admin/testimonial'}
               onClick={() => handleCloseSidebar()}
             >
-              Enrollment List
+              Testimonial
             </Link>
             <Link
-              href={'/admin/add-new-student'}
+              href={'/admin/add-testimonial'}
               onClick={() => handleCloseSidebar()}
             >
-              Add New Student
+              Add Testimonial
             </Link>
           </motion.div>
         )}
@@ -65,4 +64,4 @@ const EnrollmentDropdown = () => {
   )
 }
 
-export default EnrollmentDropdown
+export default TestimonialDropdown

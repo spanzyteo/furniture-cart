@@ -1,29 +1,30 @@
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { toggleEnrollment } from '../../store/sidebarSlice'
 import { AnimatePresence, motion } from 'framer-motion'
 import { IoIosArrowDown } from 'react-icons/io'
-import { PiStudentDuotone } from 'react-icons/pi'
+import { MdOutlineRateReview } from 'react-icons/md'
 import Link from 'next/link'
-const EnrollmentSidebarSection = () => {
+import { toggleTestimonial } from '../../store/sidebarSlice'
+
+const TestimonialSidebarSection = () => {
   const sections = useAppSelector((state) => state.sidebar)
   const dispatch = useAppDispatch()
 
-  const handleEnrollmentClick = () => {
-    dispatch(toggleEnrollment())
+  const handleTestimonialClick = () => {
+    dispatch(toggleTestimonial())
   }
   return (
     <>
       <div
-        onClick={() => handleEnrollmentClick()}
+        onClick={() => handleTestimonialClick()}
         className="flex items-center justify-between w-[230px] cursor-pointer"
       >
         <div className="flex flex-row items-center justify-between gap-8">
-          <PiStudentDuotone className="h-[20px] w-[20px]" />
-          <h1>Enrollment</h1>
+          <MdOutlineRateReview className="h-[20px] w-[20px]" />
+          <h1>Testimonials</h1>
         </div>
         <div className="">
           <motion.div
-            animate={{ rotate: sections.enrollment ? 180 : 0 }}
+            animate={{ rotate: sections.testimonial ? 180 : 0 }}
             initial={{ rotate: 0 }}
             transition={{ duration: 0.3 }}
           >
@@ -32,7 +33,7 @@ const EnrollmentSidebarSection = () => {
         </div>
       </div>
       <AnimatePresence>
-        {sections.enrollment && (
+        {sections.testimonial && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
@@ -40,8 +41,8 @@ const EnrollmentSidebarSection = () => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden flex flex-col gap-4 mt-2 ml-14"
           >
-            <Link href={'/admin/enrollment'}>Enrollment List</Link>
-            <Link href={'/admin/add-new-student'}>Add Student</Link>
+            <Link href={'/admin/testimonial'}>Testimonials</Link>
+            <Link href={'/admin/add-testimonial'}>Add Testimonial</Link>
           </motion.div>
         )}
       </AnimatePresence>
@@ -49,4 +50,4 @@ const EnrollmentSidebarSection = () => {
   )
 }
 
-export default EnrollmentSidebarSection
+export default TestimonialSidebarSection

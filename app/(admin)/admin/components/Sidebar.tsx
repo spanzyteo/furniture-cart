@@ -1,12 +1,7 @@
 'use client'
 import { useAppSelector, useAppDispatch } from '../store/hooks'
 import { toggleCategory, toggleProducts } from '../store/sidebarSlice'
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { MdSpaceDashboard } from 'react-icons/md'
-import { IoIosArrowDown } from 'react-icons/io'
-import { BsBag } from 'react-icons/bs'
-import { MdWidgets } from 'react-icons/md'
 import Link from 'next/link'
 import ProductSidebarSection from './product/ProductSidebarSection'
 import CategorySidebarSection from './category/CategorySidebarSection'
@@ -30,7 +25,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="bg-white fixed w-[300px] xl:flex flex-col hidden top-2 bottom-0 left-3 rounded-xl shadow-2xl z-50">
+      <div className="bg-white fixed w-[300px] xl:flex flex-col hidden top-2 bottom-0 left-3 rounded-xl shadow-2xl z-50 overflow-y-auto">
         <div className=" h-[120px] w-[300px] flex items-center justify-center">
           <h1 className="text-2xl font-semibold">PMFC</h1>
         </div>

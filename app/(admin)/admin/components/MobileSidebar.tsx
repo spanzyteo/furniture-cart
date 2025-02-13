@@ -13,6 +13,7 @@ import TrainingProgramDropdown from './training_program/TrainingProgramDropdown'
 import EnrollmentDropdown from './enrollment/EnrollmentDropdown'
 import QuotationDropdown from './quotation/QuotationDropdown'
 import ServiceDropdown from './services/ServiceDropdown'
+import ProjectDropdown from './projects/ProjectDropdown'
 
 const MobileSidebar = () => {
   const dispatch = useAppDispatch()
@@ -58,6 +59,7 @@ const MobileSidebar = () => {
             <EnrollmentDropdown />
             <QuotationDropdown />
             <ServiceDropdown />
+            <ProjectDropdown />
           </div>
         </motion.div>
       )}

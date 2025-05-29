@@ -2,9 +2,51 @@
 import { MdOutlineAddBox } from 'react-icons/md'
 import { categories } from '../utils/category'
 import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie'
+
+type CategoryType = {
+  id: number
+  name: string
+  image: string
+  thumbnailimage: string
+}
 
 const Category = () => {
   const router = useRouter()
+  const [category, setCategory] = useState<CategoryType[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const token = Cookies.get('adminToken')
+
+        if (!token) {
+          console.error('No token found')
+          return
+        }
+
+        const response = await axios.get(
+          'https://api.princem-fc.com/api/categories',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        const categoryData = response.data
+        setCategory(categoryData)
+        console.log('Fetched category:', categoryData)
+        // console.log(products)
+      } catch (error) {
+        console.error('Error fetching category:', error)
+      }
+    }
+
+    fetchProducts()
+  }, [])
   
   return (
     <div className="bg-white flex flex-col pb-[3rem]">
@@ -42,13 +84,13 @@ const Category = () => {
                   Category Image
                 </th>
                 <th className="lg:px-16 px-8 py-2 whitespace-nowrap">
-                  Category Icon
+                  Category Thumbnail
                 </th>
               </tr>
             </thead>
             <tbody>
-              {categories.map((item) => {
-                const Icon = item.icon
+              {category.map((item) => {
+                // const Icon = item.icon
                 return (
                   <tr key={item.id} className="even:bg-white odd:bg-[#F2F2F2]">
                     <td className="lg:px-16 px-8 py-3">
@@ -64,7 +106,13 @@ const Category = () => {
                       </div>
                     </td>
                     <td className="lg:px-24 px-16 py-3 ml-4">
-                      <Icon className="text-[#4A5568] text-4xl" />
+                      <div className="w-[80px] h-[80px] flex items-center justify-center rounded-xl">
+                        <img
+                          src={item.thumbnailimage}
+                          alt="img"
+                          className="h-[60px] w-[60px] object-contain"
+                        />
+                      </div>
                     </td>
                   </tr>
                 )

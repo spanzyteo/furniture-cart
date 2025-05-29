@@ -1,10 +1,55 @@
+'use client'
 import Link from 'next/link'
 import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { MdOutlineEdit } from 'react-icons/md'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { projectData } from '../../../(main)/data/projects'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie'
+
+type ProjectData = {
+  id: number
+  title: string
+  description: string
+  status: string
+  image: string
+}
 
 const Projects = () => {
+  const [project, setProject] = useState<ProjectData[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const token = Cookies.get('adminToken')
+
+        if (!token) {
+          console.error('No token found')
+          return
+        }
+
+        const response = await axios.get(
+          'https://api.princem-fc.com/api/projects',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        const projectData = response.data
+        setProject(projectData)
+        console.log('Fetched project:', projectData)
+        // console.log(products)
+      } catch (error) {
+        console.error('Error fetching category:', error)
+      }
+    }
+
+    fetchProducts()
+  }, [])
+
   return (
     <div className="bg-white flex flex-col pb-[3rem]">
       <div className="xl:ml-[20rem] mt-8 bg-[#F2F2F2] flex flex-col px-4 w-[90%] lg:w-[1014px] rounded-xl mx-auto mb-8 pb-8">
@@ -29,11 +74,12 @@ const Projects = () => {
                   Section
                 </th>
                 <th className="lg:px-16 px-8 py-2 whitespace-nowrap">Image</th>
+                <th className="lg:px-16 px-8 py-2 whitespace-nowrap">Status</th>
                 <th className="lg:px-16 px-8 py-2">Option</th>
               </tr>
             </thead>
             <tbody>
-              {projectData.map((item) => (
+              {project.map((item) => (
                 <tr key={item.id} className="even:bg-white odd:bg-[#F2F2F2]">
                   <td className="lg:px-16 px-8 py-3">
                     <h1 className="text-md text-[#4A5568] whitespace-nowrap">
@@ -42,7 +88,7 @@ const Projects = () => {
                   </td>
                   <td className="lg:px-16 px-8 py-3">
                     <h1 className="text-md text-[#4A5568]">
-                      {item.section}
+                      {item.description}
                     </h1>
                   </td>
                   <td className="lg:px-16 px-8 py-3">
@@ -53,6 +99,11 @@ const Projects = () => {
                         className="h-[80px] w-[180px] object-cover"
                       />
                     </div>
+                  </td>
+                  <td className="lg:px-16 px-8 py-3">
+                    <h1 className="text-md text-[#4A5568]">
+                      {item.status}
+                    </h1>
                   </td>
                   <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3">
                     <Link href={`/admin/projects/${item.id}`}>

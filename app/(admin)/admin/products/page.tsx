@@ -5,9 +5,54 @@ import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { MdOutlineEdit } from 'react-icons/md'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie'
+
+type ProductType = {
+  id: number
+  name: string
+  description: string
+  price: string
+  stock: number
+  category_id: number
+  image: string
+}
 
 const Products = () => {
   const router = useRouter()
+  const [products, setProducts] = useState<ProductType[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const token = Cookies.get('adminToken') // Adjust if you use another storage method
+
+        if (!token) {
+          console.error('No token found')
+          return
+        }
+
+        const response = await axios.get(
+          'https://api.princem-fc.com/api/products',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        const productData = response.data.data
+        setProducts(productData)
+        console.log('Fetched products:', productData)
+        // console.log(products)
+      } catch (error) {
+        console.error('Error fetching products:', error)
+      }
+    }
+
+    fetchProducts()
+  }, [])
 
   return (
     <div className="bg-white flex flex-col pb-[3rem]">
@@ -50,17 +95,17 @@ const Products = () => {
                   Current Qty
                 </th>
                 <th className="lg:px-16 px-8 py-2">Price</th>
-                <th className="lg:px-16 px-8 py-2">Status</th>
+                {/* <th className="lg:px-16 px-8 py-2">Status</th> */}
                 <th className="lg:px-16 px-8 py-2">Option</th>
               </tr>
             </thead>
             <tbody>
-              {Product.map((item) => (
+              {products.map((item) => (
                 <tr key={item.id} className="even:bg-white odd:bg-[#F2F2F2]">
                   <td className="lg:px-16 px-8 py-3">
                     <div className="w-[80px] h-[80px] flex items-center justify-center rounded-xl">
                       <img
-                        src={item.image.src}
+                        src={item.image}
                         alt="img"
                         className="h-[60px] w-[60px] object-contain"
                       />
@@ -70,7 +115,7 @@ const Products = () => {
                     <h1 className="text-md text-[#4A5568]">{item.name}</h1>
                   </td>
                   <td className="lg:px-16 px-8 py-3 text-[#fab702]">
-                    {item.category}
+                    {item.description}
                   </td>
                   <td className="lg:px-16 px-8 py-3 text-[#4A5568]">
                     {item.stock}
@@ -78,7 +123,7 @@ const Products = () => {
                   <td className="lg:px-16 px-8 py-3 text-[#4A5568]">
                     ${item.price}
                   </td>
-                  <td className="lg:px-16 px-8 py-3">
+                  {/* <td className="lg:px-16 px-8 py-3">
                     <div
                       className={`rounded-[6px] h-[30px] w-[85px] flex items-center justify-center ${
                         item.status === 'Approved'
@@ -88,7 +133,7 @@ const Products = () => {
                     >
                       {item.status}
                     </div>
-                  </td>
+                  </td> */}
                   <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3">
                     <MdOutlineRemoveRedEye className="h-[20px] w-[20px] text-purple-400" />
                     <MdOutlineEdit className="h-[20px] w-[20px] text-blue-400" />

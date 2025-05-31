@@ -19,7 +19,7 @@ const Category = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchCategory = async () => {
       try {
         const token = Cookies.get('adminToken')
 
@@ -45,7 +45,7 @@ const Category = () => {
       }
     }
 
-    fetchProducts()
+    fetchCategory()
   }, [])
   
   return (
@@ -98,20 +98,32 @@ const Category = () => {
                     </td>
                     <td className="lg:px-16 px-8 py-3">
                       <div className="w-[80px] h-[80px] flex items-center justify-center rounded-xl">
-                        <img
-                          src={item.image}
-                          alt="img"
-                          className="h-[60px] w-[60px] object-contain"
-                        />
+                        {item.image ? (
+                          <img
+                            src={item.image}
+                            alt="Category"
+                            className="h-[60px] w-[60px] object-contain"
+                          />
+                        ) : (
+                          <span className="text-gray-400 text-sm">
+                            No Image
+                          </span>
+                        )}
                       </div>
                     </td>
                     <td className="lg:px-24 px-16 py-3 ml-4">
                       <div className="w-[80px] h-[80px] flex items-center justify-center rounded-xl">
-                        <img
-                          src={item.thumbnailimage}
-                          alt="img"
-                          className="h-[60px] w-[60px] object-contain"
-                        />
+                        {item.thumbnailimage ? (
+                          <img
+                            src={item.thumbnailimage}
+                            alt="Thumbnail"
+                            className="h-[60px] w-[60px] object-contain"
+                          />
+                        ) : (
+                          <span className="text-gray-400 text-sm">
+                            No Thumbnail
+                          </span>
+                        )}
                       </div>
                     </td>
                   </tr>

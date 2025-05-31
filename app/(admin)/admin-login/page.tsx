@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-const page = () => {
+const AdminLogin = () => {
   const router = useRouter()
   const searchParams = useSearchParams()
   const key = searchParams.get('key')
@@ -89,4 +89,4 @@ const page = () => {
   )
 }
 
-export default page
+export default AdminLogin

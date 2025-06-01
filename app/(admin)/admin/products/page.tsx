@@ -123,20 +123,13 @@ const Products = () => {
                   <td className="lg:px-16 px-8 py-3 text-[#4A5568]">
                     ${item.price}
                   </td>
-                  {/* <td className="lg:px-16 px-8 py-3">
-                    <div
-                      className={`rounded-[6px] h-[30px] w-[85px] flex items-center justify-center ${
-                        item.status === 'Approved'
-                          ? 'bg-green-100 text-green-600'
-                          : 'bg-red-100 text-red-600'
-                      }`}
-                    >
-                      {item.status}
-                    </div>
-                  </td> */}
                   <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3">
-                    <MdOutlineRemoveRedEye className="h-[20px] w-[20px] text-purple-400" />
-                    <MdOutlineEdit className="h-[20px] w-[20px] text-blue-400" />
+                    <Link href={`/admin/products/${item.id}`}>
+                      <MdOutlineRemoveRedEye className="h-[20px] w-[20px] text-purple-400" />
+                    </Link>
+                    <Link href={`/admin/products/${item.id}`}>
+                      <MdOutlineEdit className="h-[20px] w-[20px] text-blue-400" />
+                    </Link>
                     <RiDeleteBin5Line className="h-[20px] w-[20px] text-red-400" />
                   </td>
                 </tr>

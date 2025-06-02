@@ -4,22 +4,19 @@ import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
-type ProductType = {
+type CategoryType = {
   id: number
   name: string
-  description: string
-  price: string
-  stock: number
-  category_id: number
   image: string
+  thumbnailimage: string
 }
 
-const ProductId = () => {
-  const { id: productId } = useParams()
-  const [product, setProduct] = useState<ProductType | null>(null)
+const CategoryId = () => {
+  const { id: categoryId } = useParams()
+  const [category, setCategory] = useState<CategoryType | null>(null)
 
   useEffect(() => {
-    const fetchProduct = async () => {
+    const fetchCategory = async () => {
       try {
         const token = Cookies.get('adminToken')
 
@@ -29,30 +26,31 @@ const ProductId = () => {
         }
 
         const response = await axios.get(
-          `https://api.princem-fc.com/api/products/${productId}`,
+          `https://api.princem-fc.com/api/products/${categoryId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         )
-        const productData = response.data
-        setProduct(productData)
+        const categoryData = response.data
+        setCategory(categoryData)
+        console.log('Fetched category:', categoryData)
       } catch (error) {
-        console.error('Error fetching products:', error)
+        console.error('Error fetching Category', error)
       }
     }
 
-    if (productId) fetchProduct()
-  }, [productId])
+    if (categoryId) fetchCategory()
+  }, [categoryId])
   return (
     <div className="bg-white flex flex-col h-[100vh]">
       <div className="xl:ml-[20rem] mt-8 bg-[#F2F2F2] flex flex-col px-4 w-[90%] lg:w-[1014px] rounded-xl mx-auto mb-8 pb-8 overflow-x-auto">
-        {product ? (
+        {category ? (
           <>
             <div className="mt-4">
               <h1 className="font-semibold sm:text-xl text-lg">
-                Product #{product.id}
+                Category #{category.id}
               </h1>
             </div>
             <div className="mt-8 overflow-x-auto">
@@ -60,27 +58,23 @@ const ProductId = () => {
                 <tbody>
                   <tr className="border border-gray-300">
                     <td className="p-2 font-semibold bg-gray-200">Name</td>
-                    <td className="p-2">{product.name}</td>
-                  </tr>
-                  <tr className="border border-gray-300">
-                    <td className="p-2 font-semibold bg-gray-200">
-                      Description
-                    </td>
-                    <td className="p-2">{product.description}</td>
-                  </tr>
-                  <tr className="border border-gray-300">
-                    <td className="p-2 font-semibold bg-gray-200">Price</td>
-                    <td className="p-2">{product.price}</td>
-                  </tr>
-                  <tr className="border border-gray-300">
-                    <td className="p-2 font-semibold bg-gray-200">Stock</td>
-                    <td className="p-2">{product.stock}</td>
+                    <td className="p-2">{category.name}</td>
                   </tr>
                   <tr className="border border-gray-300">
                     <td className="p-2 font-semibold bg-gray-200">Image </td>
                     <td className="p-2">
                       <img
-                        src={product.image}
+                        src={category.image}
+                        alt="Product Image"
+                        className="w-[250px] h-32 object-cover rounded-md"
+                      />
+                    </td>
+                  </tr>
+                  <tr className="border border-gray-300">
+                    <td className="p-2 font-semibold bg-gray-200">Image </td>
+                    <td className="p-2">
+                      <img
+                        src={category.thumbnailimage}
                         alt="Product Image"
                         className="w-[250px] h-32 object-cover rounded-md"
                       />
@@ -91,11 +85,11 @@ const ProductId = () => {
             </div>
           </>
         ) : (
-          <p>Loading product...</p>
+          <p>Loading Category....</p>
         )}
       </div>
     </div>
   )
 }
 
-export default ProductId
+export default CategoryId

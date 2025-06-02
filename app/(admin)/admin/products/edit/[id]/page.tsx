@@ -142,7 +142,7 @@ const EditProduct = () => {
     }
   }, [error, success])
   return (
-    <div className="bg-white flex flex-col pb-[3rem]">
+    <div className="bg-white min-h-screen w-full flex flex-col pb-[3rem]">
       <form onSubmit={handleSubmit}>
         <div className="xl:ml-[27rem] mt-8 bg-[#F2F2F2] flex flex-col px-4 w-[90%] lg:w-[777px] rounded-xl mx-auto mb-8 pb-8">
           <h1 className="text-xl font-semibold mt-4">Product Information</h1>

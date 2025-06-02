@@ -1,10 +1,11 @@
 'use client'
-import { MdOutlineAddBox } from 'react-icons/md'
-import { categories } from '../utils/category'
+import { MdOutlineAddBox, MdOutlineEdit, MdOutlineRemoveRedEye } from 'react-icons/md'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import Link from 'next/link'
+import { RiDeleteBin5Line } from 'react-icons/ri'
 
 type CategoryType = {
   id: number
@@ -47,9 +48,9 @@ const Category = () => {
 
     fetchCategory()
   }, [])
-  
+
   return (
-    <div className="bg-white flex flex-col pb-[3rem]">
+    <div className="bg-white min-h-screen w-full flex flex-col pb-[3rem]">
       <div className="xl:ml-[20rem] mt-8 bg-[#F2F2F2] flex flex-col px-4 w-[90%] lg:w-[1014px] rounded-xl mx-auto mb-8 pb-8">
         <div className="flex items-center justify-between mt-4">
           <h1 className="font-semibold sm:text-xl text-lg">All Category</h1>
@@ -86,6 +87,7 @@ const Category = () => {
                 <th className="lg:px-16 px-8 py-2 whitespace-nowrap">
                   Category Thumbnail
                 </th>
+                <th className="lg:px-16 px-8 py-2 whitespace-nowrap">Option</th>
               </tr>
             </thead>
             <tbody>
@@ -125,6 +127,15 @@ const Category = () => {
                           </span>
                         )}
                       </div>
+                    </td>
+                    <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3">
+                      <Link href={`/admin/category/${item.id}`}>
+                        <MdOutlineRemoveRedEye className="h-[20px] w-[20px] text-purple-400" />
+                      </Link>
+                      <Link href={`/admin/category/edit/${item.id}`}>
+                        <MdOutlineEdit className="h-[20px] w-[20px] text-blue-400" />
+                      </Link>
+                      <RiDeleteBin5Line className="h-[20px] w-[20px] text-red-400" />
                     </td>
                   </tr>
                 )

@@ -89,7 +89,7 @@ const Products = () => {
                   Product Name
                 </th>
                 <th className="lg:px-16 px-8 py-2 whitespace-nowrap">
-                  Category
+                  Description
                 </th>
                 <th className="lg:px-16 px-8 py-2 whitespace-nowrap">
                   Current Qty
@@ -114,20 +114,20 @@ const Products = () => {
                   <td className="lg:px-16 px-8 py-3">
                     <h1 className="text-md text-[#4A5568]">{item.name}</h1>
                   </td>
-                  <td className="lg:px-16 px-8 py-3 text-[#fab702]">
+                  <td className="lg:px-16 px-8 py-3 text-[#4A5568]">
                     {item.description}
                   </td>
                   <td className="lg:px-16 px-8 py-3 text-[#4A5568]">
                     {item.stock}
                   </td>
                   <td className="lg:px-16 px-8 py-3 text-[#4A5568]">
-                    ${item.price}
+                    ₦{item.price}
                   </td>
                   <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3">
                     <Link href={`/admin/products/${item.id}`}>
                       <MdOutlineRemoveRedEye className="h-[20px] w-[20px] text-purple-400" />
                     </Link>
-                    <Link href={`/admin/products/${item.id}`}>
+                    <Link href={`/admin/products/edit/${item.id}`}>
                       <MdOutlineEdit className="h-[20px] w-[20px] text-blue-400" />
                     </Link>
                     <RiDeleteBin5Line className="h-[20px] w-[20px] text-red-400" />

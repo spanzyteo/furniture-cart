@@ -54,6 +54,26 @@ const Products = () => {
     fetchProducts()
   }, [])
 
+  const handleDelete = async (id: number) => {
+    try {
+      const token = Cookies.get('adminToken')
+      if (!token) {
+        console.error('No token found')
+        return
+      }
+
+      await axios.delete(`https://api.princem-fc.com/api/products/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+
+      setProducts((prev) => prev.filter((cat) => cat.id !== id))
+    } catch (error: any) {
+      console.error('Error deleting category:', error)
+    }
+  }
+
   return (
     <div className="bg-white min-h-screen w-full flex flex-col pb-[3rem]">
       <div className="xl:ml-[20rem] mt-8 bg-[#F2F2F2] flex flex-col px-4 w-[90%] lg:w-[1014px] rounded-xl mx-auto mb-8 pb-8">
@@ -129,7 +149,10 @@ const Products = () => {
                     <Link href={`/admin/products/edit/${item.id}`}>
                       <MdOutlineEdit className="h-[20px] w-[20px] text-blue-400" />
                     </Link>
-                    <RiDeleteBin5Line className="h-[20px] w-[20px] text-red-400" />
+                    <RiDeleteBin5Line
+                      onClick={() => handleDelete(item.id)}
+                      className="h-[20px] w-[20px] text-red-400 cursor-pointer hover:text-red-300"
+                    />
                   </td>
                 </tr>
               ))}

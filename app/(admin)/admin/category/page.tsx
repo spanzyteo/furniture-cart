@@ -1,5 +1,9 @@
 'use client'
-import { MdOutlineAddBox, MdOutlineEdit, MdOutlineRemoveRedEye } from 'react-icons/md'
+import {
+  MdOutlineAddBox,
+  MdOutlineEdit,
+  MdOutlineRemoveRedEye,
+} from 'react-icons/md'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -18,6 +22,29 @@ const Category = () => {
   const router = useRouter()
   const [category, setCategory] = useState<CategoryType[]>([])
   const [loading, setLoading] = useState(true)
+  const [success, setSuccess] = useState('')
+
+  const handleDelete = async (id: number) => {
+    try {
+      const token = Cookies.get('adminToken')
+      if (!token) {
+        console.error('No token found')
+        return
+      }
+
+      await axios.delete(`https://api.princem-fc.com/api/categories/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+
+      // Remove deleted category from UI
+      setCategory((prev) => prev.filter((cat) => cat.id !== id))
+    } catch (error: any) {
+      console.error('Error deleting category:', error)
+      setSuccess(error.response.data.message)
+    }
+  }
 
   useEffect(() => {
     const fetchCategory = async () => {
@@ -48,6 +75,16 @@ const Category = () => {
 
     fetchCategory()
   }, [])
+
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        setSuccess('')
+      }, 5000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [success])
 
   return (
     <div className="bg-white min-h-screen w-full flex flex-col pb-[3rem]">
@@ -100,17 +137,11 @@ const Category = () => {
                     </td>
                     <td className="lg:px-16 px-8 py-3">
                       <div className="w-[80px] h-[80px] flex items-center justify-center rounded-xl">
-                        {item.image ? (
-                          <img
-                            src={item.image}
-                            alt="Category"
-                            className="h-[60px] w-[60px] object-contain"
-                          />
-                        ) : (
-                          <span className="text-gray-400 text-sm">
-                            No Image
-                          </span>
-                        )}
+                        <img
+                          src={item.image}
+                          alt="img"
+                          className="h-[60px] w-[60px] object-contain"
+                        />
                       </div>
                     </td>
                     <td className="lg:px-24 px-16 py-3 ml-4">
@@ -128,14 +159,17 @@ const Category = () => {
                         )}
                       </div>
                     </td>
-                    <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3">
+                    <td className="lg:px-16 px-8 py-3 flex mt-9 gap-3 relative">
                       <Link href={`/admin/category/${item.id}`}>
                         <MdOutlineRemoveRedEye className="h-[20px] w-[20px] text-purple-400" />
                       </Link>
                       <Link href={`/admin/category/edit/${item.id}`}>
                         <MdOutlineEdit className="h-[20px] w-[20px] text-blue-400" />
                       </Link>
-                      <RiDeleteBin5Line className="h-[20px] w-[20px] text-red-400" />
+                      <RiDeleteBin5Line
+                        onClick={() => handleDelete(item.id)}
+                        className="h-[20px] w-[20px] text-red-400 cursor-pointer"
+                      />
                     </td>
                   </tr>
                 )

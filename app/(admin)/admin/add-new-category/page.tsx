@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useCallback, useEffect } from 'react'
-import { useDropzone } from 'react-dropzone'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
@@ -114,26 +113,6 @@ const AddNewCategory = () => {
     reader.onload = () => setCategoryIcon(reader.result as string)
     reader.readAsDataURL(file)
   }, [])
-
-  // First useDropzone instance
-  const {
-    getRootProps: getCategoryRootProps,
-    getInputProps: getCategoryInputProps,
-    isDragActive: isCategoryDragActive,
-  } = useDropzone({
-    onDrop: onDropCategory,
-    accept: { 'image/*': [] },
-  })
-
-  // Second useDropzone instance
-  const {
-    getRootProps: getCategoryIconRootProps,
-    getInputProps: getCategoryIconInputProps,
-    isDragActive: isCategoryIconDragActive,
-  } = useDropzone({
-    onDrop: onDropCategoryIcon,
-    accept: { 'image/*': [] },
-  })
 
   return (
     <div className="bg-white min-h-screen w-full flex flex-col pb-[3rem]">

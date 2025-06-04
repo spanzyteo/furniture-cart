@@ -91,7 +91,9 @@ const ProductId = () => {
             </div>
           </>
         ) : (
-          <p>Loading product...</p>
+          <h1 className="text-gray-600 text-lg text-center mt-8">
+            Product not found.
+          </h1>
         )}
       </div>
     </div>

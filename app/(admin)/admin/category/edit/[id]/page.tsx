@@ -36,7 +36,6 @@ const EditCategory = () => {
         )
 
         const categoryData = response.data
-        console.log(categoryData)
         setCategoryName(categoryData.name)
         setSlugName(categoryData.slug)
         setFileName(categoryData.image || 'No file chosen')
@@ -77,13 +76,6 @@ const EditCategory = () => {
     event.preventDefault()
     setLoading(true)
 
-    console.log('Submitting:', {
-      name: categoryName,
-      slug: slugName,
-      imageFile,
-      thumbnailFile,
-    })
-
     const formData = new FormData()
     formData.append('name', categoryName)
     formData.append('slug', slugName)
@@ -101,7 +93,6 @@ const EditCategory = () => {
         formData,
         {
           headers: {
-            // 'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
         }
@@ -112,7 +103,6 @@ const EditCategory = () => {
         router.push('/admin/category')
       } else {
         setError('Failed to update product.')
-        console.log('Failed to update product.')
       }
     } catch (error: any) {
       console.error(error)

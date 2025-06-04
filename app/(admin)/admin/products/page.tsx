@@ -45,7 +45,6 @@ const Products = () => {
         const productData = response.data.data
         setProducts(productData)
         console.log('Fetched products:', productData)
-        // console.log(products)
       } catch (error) {
         console.error('Error fetching products:', error)
       }

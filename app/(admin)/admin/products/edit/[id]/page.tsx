@@ -137,7 +137,7 @@ const EditProduct = () => {
       const timer = setTimeout(() => {
         setError('')
         setSuccess('')
-      }, 5000)
+      }, 8000)
       return () => clearTimeout(timer)
     }
   }, [error, success])
@@ -288,12 +288,12 @@ const EditProduct = () => {
           {loading ? 'Submitting...' : 'Submit'}
         </button>
         {error && (
-          <p className="text-red-600 mx-auto xl:ml-[27rem] mt-[-2rem]">
+          <p className="text-red-600 text-center xl:text-left xl:ml-[27rem] mt-[-2rem]">
             {error}
           </p>
         )}
         {success && (
-          <p className="text-green-600 mt-[-2rem] xl:ml-[27rem] mx-auto">
+          <p className="text-green-600 text-center xl:text-left mt-[-2rem] xl:ml-[27rem] mx-auto">
             {success}
           </p>
         )}

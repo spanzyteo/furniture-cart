@@ -98,20 +98,17 @@ const EditProduct = () => {
     formData.append('description', description)
     if (imageFile) formData.append('image', imageFile)
     if (thumbnailFile) formData.append('thumbnail', thumbnailFile)
+    formData.append('_method', 'PUT')
 
     try {
       const token = Cookies.get('adminToken')
       if (!token) return
 
-      for (const [key, value] of formData.entries()) {
-        console.log(`${key}:`, value)
-      }
-      const response = await axios.put(
+      const response = await axios.post(
         `https://api.princem-fc.com/api/products/${id}`,
         formData,
         {
           headers: {
-            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         }
@@ -122,10 +119,8 @@ const EditProduct = () => {
         router.push('/admin/products') // Optional: redirect after success
       } else {
         setError('Failed to update product.')
-        console.log('Failed to update product.')
       }
     } catch (error: any) {
-      console.error(error)
       setError(error.response?.data?.message || 'Something went wrong.')
     } finally {
       setLoading(false)

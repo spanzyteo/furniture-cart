@@ -27,7 +27,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const token = Cookies.get('adminToken') // Adjust if you use another storage method
+        const token = Cookies.get('adminToken') 
 
         if (!token) {
           console.error('No token found')
@@ -44,7 +44,6 @@ const Products = () => {
         )
         const productData = response.data.data
         setProducts(productData)
-        console.log('Fetched products:', productData)
       } catch (error) {
         console.error('Error fetching products:', error)
       }

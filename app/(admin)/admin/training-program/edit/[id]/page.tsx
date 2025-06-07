@@ -68,7 +68,6 @@ const EditTrainingProgram = () => {
         formData,
         {
           headers: {
-            // 'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
         }
@@ -81,7 +80,6 @@ const EditTrainingProgram = () => {
         setError('Failed to update training program')
       }
     } catch (error: any) {
-      console.error(error)
       setError(error.response?.data?.message || 'Something went wrong.')
     } finally {
       setLoading(false)

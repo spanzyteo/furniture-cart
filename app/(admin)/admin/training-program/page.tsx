@@ -40,7 +40,6 @@ const TrainingProgram = () => {
 
         const programData = response.data.trainingPrograms
         setTrainingProgram(programData)
-        console.log('Fetched Program:', programData)
       } catch (error) {
         console.error('Error fetching Program:', error)
       }

@@ -22,7 +22,7 @@ const Category = () => {
   const router = useRouter()
   const [category, setCategory] = useState<CategoryType[]>([])
   const [loading, setLoading] = useState(true)
-  const [success, setSuccess] = useState('')
+  const [error, setError] = useState('')
 
   const handleDelete = async (id: number) => {
     try {
@@ -42,7 +42,7 @@ const Category = () => {
       setCategory((prev) => prev.filter((cat) => cat.id !== id))
     } catch (error: any) {
       console.error('Error deleting category:', error)
-      setSuccess(error.response.data.message)
+      setError(error.response.data.message)
     }
   }
 
@@ -66,8 +66,6 @@ const Category = () => {
         )
         const categoryData = response.data
         setCategory(categoryData)
-        console.log('Fetched category:', categoryData)
-        // console.log(products)
       } catch (error) {
         console.error('Error fetching category:', error)
       }
@@ -75,16 +73,6 @@ const Category = () => {
 
     fetchCategory()
   }, [])
-
-  useEffect(() => {
-    if (success) {
-      const timer = setTimeout(() => {
-        setSuccess('')
-      }, 5000)
-
-      return () => clearTimeout(timer)
-    }
-  }, [success])
 
   return (
     <div className="bg-white min-h-screen w-full flex flex-col pb-[3rem]">

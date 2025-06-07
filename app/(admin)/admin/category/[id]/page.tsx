@@ -26,7 +26,7 @@ const CategoryId = () => {
         }
 
         const response = await axios.get(
-          `https://api.princem-fc.com/api/products/${categoryId}`,
+          `https://api.princem-fc.com/api/categories/${categoryId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -85,7 +85,9 @@ const CategoryId = () => {
             </div>
           </>
         ) : (
-          <p>Loading Category....</p>
+          <h1 className="text-gray-600 text-lg text-center mt-8">
+            Category not found.
+          </h1>
         )}
       </div>
     </div>

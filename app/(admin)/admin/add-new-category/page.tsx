@@ -51,7 +51,6 @@ const AddNewCategory = () => {
       const token = Cookies.get('adminToken')
 
       if (!token) {
-        console.error('No token found')
         return
       }
       const response = await axios.post(
@@ -81,7 +80,6 @@ const AddNewCategory = () => {
       console.error(error)
       setError(error.response.data.message || 'Invalid credentials.')
     }
-
   }
   useEffect(() => {
     if (error || success) {
@@ -93,26 +91,6 @@ const AddNewCategory = () => {
       return () => clearTimeout(timer)
     }
   }, [error, success])
-  // State for first image input
-  const [categoryImage, setCategoryImage] = useState<string | null>(null)
-  // State for second image input (e.g., Thumbnail)
-  const [categoryIcon, setCategoryIcon] = useState<string | null>(null)
-
-  // Handler for first image input
-  const onDropCategory = useCallback((acceptedFiles: File[]) => {
-    const file = acceptedFiles[0]
-    const reader = new FileReader()
-    reader.onload = () => setCategoryImage(reader.result as string)
-    reader.readAsDataURL(file)
-  }, [])
-
-  // Handler for second image input
-  const onDropCategoryIcon = useCallback((acceptedFiles: File[]) => {
-    const file = acceptedFiles[0]
-    const reader = new FileReader()
-    reader.onload = () => setCategoryIcon(reader.result as string)
-    reader.readAsDataURL(file)
-  }, [])
 
   return (
     <div className="bg-white min-h-screen w-full flex flex-col pb-[3rem]">
@@ -193,7 +171,7 @@ const AddNewCategory = () => {
           {loading ? 'Submitting...' : 'Submit'}
         </button>
         {error && (
-          <p className="text-red-600 mx-auto xl:ml-[27rem] mt-[-2rem]">
+          <p className="text-red-600 text-center xl:text-left xl:ml-[27rem] mt-[-2rem]">
             {error}
           </p>
         )}

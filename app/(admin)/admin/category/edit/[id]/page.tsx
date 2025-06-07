@@ -102,7 +102,7 @@ const EditCategory = () => {
         setSuccess('Category updated successfully!')
         router.push('/admin/category')
       } else {
-        setError('Failed to update product.')
+        setError('Failed to update category.')
       }
     } catch (error: any) {
       console.error(error)
@@ -139,7 +139,7 @@ const EditCategory = () => {
               required
             />
           </div>
-          
+
           <div className="flex flex-col lg:flex-row lg:items-center justify-between mt-4 gap-3 lg:gap-0">
             <h1 className="font-semibold text-[#4A5568]">Category Slug</h1>
             <input
@@ -216,12 +216,12 @@ const EditCategory = () => {
           {loading ? 'Submitting...' : 'Submit'}
         </button>
         {error && (
-          <p className="text-red-600 mx-auto xl:ml-[27rem] mt-[-2rem]">
+          <p className="text-red-600 text-center xl:text-left xl:ml-[27rem] mt-[-2rem]">
             {error}
           </p>
         )}
         {success && (
-          <p className="text-green-600 mt-[-2rem] xl:ml-[27rem] mx-auto">
+          <p className="text-green-600 text-center xl:text-left xl:ml-[27rem] mx-auto">
             {success}
           </p>
         )}

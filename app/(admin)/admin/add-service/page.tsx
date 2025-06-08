@@ -77,7 +77,6 @@ const AddService = () => {
       }
     } catch (error: any) {
       setLoading(false)
-      console.error(error)
       setError(error.response.data.message || 'Invalid credentials.')
     }
   }

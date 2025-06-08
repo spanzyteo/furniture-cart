@@ -68,7 +68,7 @@ const Products = () => {
 
       setProducts((prev) => prev.filter((cat) => cat.id !== id))
     } catch (error: any) {
-      console.error('Error deleting category:', error)
+      console.error('Error deleting product:', error)
     }
   }
 

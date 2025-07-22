@@ -25,7 +25,7 @@ const Enrollment = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchEnrollment = async () => {
       try {
         const token = Cookies.get('adminToken')
 
@@ -44,14 +44,12 @@ const Enrollment = () => {
         )
         const enrollmentData = response.data.enrollment
         setEnrollment(enrollmentData)
-        console.log('Fetched Enrollment:', enrollmentData)
-        // console.log(products)
       } catch (error) {
         console.error('Error fetching category:', error)
       }
     }
 
-    fetchProducts()
+    fetchEnrollment();
   }, [])
 
   return (

@@ -64,8 +64,6 @@ const Services = () => {
         )
         const { data } = response.data
         setServices(data)
-        console.log('Fetched service:', data)
-        // console.log(products)
       } catch (error) {
         console.error('Error fetching category:', error)
       }
